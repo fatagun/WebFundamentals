@@ -4,15 +4,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title></title>
+		<title>Web fundementals</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
-
-		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -48,17 +45,38 @@
 
 					<section>
 						<p>
-							Later on, HTTP/0.9 was extended to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other.
+							Later on, HTTP/0.9 was extended to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other. Every connection required a 3 way handshake which was very wasteful. 
 						</p>
 					</section>
 					<section>
 						<p>
-							In 1999, HTTP/1.1 was released.<br /> Persistent connections (keep alive) was introduced, chunked transfer encoding and host header were added. With host headers, it was possible to host multiple sites for an IP. It was a breakthrough.
+							In 1999, HTTP/1.1 was released.<br /> Persistent connections (keep alive) was introduced, chunked transfer encoding and host header were added. With host headers, it was possible to host multiple sites for an IP. It was a breakthrough. <br />
+							Connection header was introduced (Connection : keep-alive), which eliminated 3 way handshake for every request. Single TCP connection was sufficient for communication. 
+						</p>
+					</section>
+
+					<section>
+						<p>
+							It was 2015 when HTTP/2 was release with several enhancements to prior versions, mostly targeting performance and common HTTP/1.1 problems.  
 						</p>
 					</section>
 				</section>
 
+				<section>
+					<h3>HTTP Basics</h3>
+				</section>
 
+				<section>
+					<h3>Request/Response Model</h3>
+				</section>
+
+				<section>
+					<h3>URLs</h3>
+				</section>
+
+				<section>
+					<h3>Verbs</h3>
+				</section>
 
 				<section>
 					<section>
@@ -72,24 +90,83 @@
 						</ul>
 					</section>
 					<section>
-						<h3>1xx</h3>
+						<h4>1xx</h4>
+						<div>
+							<ul>
+								<li>100 : Continue</li>
+							</ul>
+						</div>
 					</section>
 					<section>
-						<h3>2xx</h3>
+						<h4>2xx</h4>
+						<div>
+							<ul>
+								<li>200 : OK</li>
+								<li>201 : Created</li>
+								<li>202 : Accepted</li>
+							</ul>
+						</div>
 					</section>
 					<section>
-						<h3>3xx</h3>
+						<h4>3xx</h4>
+						<div>
+							<ul>
+								<li>301 : Moved Permanently</li>
+								<li>304 : Not Modified</li>
+								<li>307 : Temporary Redirect</li>
+							</ul>
+						</div>
 					</section>
 					<section>
-						<h3>4xx</h3>
+						<h4>4xx</h4>
+
+						<div>
+							<ul>
+								<li>400 : Bad Request</li>
+								<li>401 : Unauthorised</li>
+								<li>403 : Forbidden</li>
+								<li>404 : Not found</li>
+								<li>405 : Method not allowed</li>
+							</ul>
+						</div>
 					</section>
 					<section>
-						<h3>5xx</h3>
+						<h4>5xx</h4>
+
+						<div>
+							<ul>
+								<li>500 : Internal server error</li>
+								<li>501 : Not implemented</li>
+								<li>502 : Bad Gateway</li>
+								<li>503 : Service unavailable</li>
+								<li>504 : Gateway timeout</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						More at: <a href="https://httpstatuses.com/" target="firat">Http statuses</a>
 					</section>
 				</section>
 
 				<section>
-					<section>Notorious SSL Handshake</section>
+					<h3>Headers</h3>
+				</section>
+
+				<section>
+					<h3>Request format</h3>
+				</section>
+
+				<section>
+					<h3>Response format</h3>
+				</section>
+
+				<section>
+					<h3>HTTP Connections</h3>
+				</section>
+
+				<section>
+					<section>SSL Handshake</section>
 					<section>
 						
 					</section>
@@ -101,6 +178,33 @@
 						<ul>
 							<li></li>
 						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Problems with HTTP/1.1</h3>
+
+						<div>
+							<ul>
+							 	<li>It wasn’t designed for todays web pages, ie: 100+ HTTP requests, and 2MB+ page size.</li>
+							 	<li>Requires multiple connections</li>
+							 	<li>Lack of prioritization</li>
+							 	<li>Verbose headers</li>
+							 	<li>Head of line blocking</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<strong>Multiple Connections</strong>
+
+						<p>
+							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
+						</p>
+						<p>
+							Establishing a connection requires 3 way handshake.
+						</p>
 					</section>
 				</section>
 
