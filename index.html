@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>HTTP Overview</h3>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Brief history of HTTP</h3>
+						<div>Initial specs of HTTP was very simple. </div>
+
+						<img src="images/originalhttp.png" />
+					</section>
+
+					<section>
+						<div>
+							HTTP/0.9 was release in 1991 by Tim Barnes Lee. <br />
+							It was a text based request, response protocol. <br />
+							Only HTML was supported. <br />
+							After each request; connection was terminated. <br />
+						</div>
+					</section>
+
+					<section>
+						<p>
+							Later on, HTTP/0.9 was extended to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other.
+						</p>
+					</section>
+					<section>
+						<p>
+							In 1999, HTTP/1.1 was released.<br /> Persistent connections (keep alive) was introduced, chunked transfer encoding and host header were added. With host headers, it was possible to host multiple sites for an IP. It was a breakthrough.
+						</p>
+					</section>
+				</section>
+
+
+
+				<section>
+					<section>
+						<h3>HTTP Status Codes</h3>
+						<ul>
+							<li>1xx : Informational</li>
+							<li>2xx : Successful</li>
+							<li>3xx : Redirect</li>
+							<li>4xx : Client Error</li>
+							<li>5xx : Server Error</li>
+						</ul>
+					</section>
+					<section>
+						<h3>1xx</h3>
+					</section>
+					<section>
+						<h3>2xx</h3>
+					</section>
+					<section>
+						<h3>3xx</h3>
+					</section>
+					<section>
+						<h3>4xx</h3>
+					</section>
+					<section>
+						<h3>5xx</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>Notorious SSL Handshake</section>
+					<section>
+						
+					</section>
+				</section>
+
+				<section>
+					<section>HTTP Performance Optimization</section>
+					<section>
+						<ul>
+							<li></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Common Failures Reasons</h3>
+					</section>
+					<section>
+						<strong>#1: Big systems fail more often than small systems.</strong>
+						<p>Big systems have more external and internal dependencies along with many moving parts. Therefore, big systems should have many defensive mechanisms in place.</p>
+					</section>
+					<section>
+						<strong>#2: Blocked threads are the number one cause of most failures.</strong>
+						<p>Slow applications and hung threads are the most popular reasons of failures. These reasons lead to cascading failures and chain reactions. Blocked/hung threads can happen due to several reasons like deadlocks, starvation and live locks. Hung thread detection policies, timeouts, circuit breakers and bulkheads can prevent these failures.</p>
+					</section>
+					<section>
+						<strong>#3: Integration points are number one killer in any system.</strong>
+						<p>Every integration point eventually fails, however a failure in the integration point shouldn’t take down the whole application. Cascading failures occur when problems in one integration point propagates. Failures in integrated services becomes your problem. It even become more serious if you are not prepared for it.</p>
+					</section>
+					<section>
+						<strong>#4: Tight coupled systems fail more often than loose coupled systems.</strong>
+						<p>Decoupling middleware is a good practice to enable loose coupling for integration. This principle is applicable and best practice for cloud native applications.</p>
+					</section>
+					<section>
+						<strong>#5: High traffic site's Resource/Connections pools get drained very quickly.</strong>
+						<p>Resource/Connection pool have limitations. They can run out of resources rapidly and application performance will start degrading.</p>
+					</section>
+					<section>
+						<strong>#6: Unbalanced capacities causes failures and scalability problems for applications.</strong>
+						<p>If the capacities are not aligned, then you have a problem. Capacity and sizing should be planned accordingly.</p>
+					</section>
+					<section>
+						<strong>#7: Never trust a system you have no control over.</strong>
+						<p>The downstream application which is running a blocking code, can take your application down.</p>
+					</section>
+					<section>
+						<strong>#8: Slow applications gets more traffic.</strong>
+						<p>When an application is slow, users hit re-load button or F5 many times to reach to the application which causes more traffic.</p>
+					</section>
+					<section>
+						<strong>#9: Fail fast all the time and retry gradually.</strong>
+						<p>Exponential back off, Circuit breakers and timeouts should be embraced. User friendly error codes or default messages should be presented to the user until the stability is established.</p>
+					</section>
+					<section>
+						<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>
+						<p>Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Characteristics of Scalable Systems</h3>
+					</section>
+					<section>
+						<ul>
+							<li>Increase the resources should proportionally increase the throughput.</li>
+							<li></li>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
