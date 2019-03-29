@@ -17,13 +17,44 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<style>
+			div
+			{
+				text-align: left;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h3>HTTP Overview</h3>
+					<h1>Web Fundamentals for Executives</h1>
+				</section>
 
+				<section>
+					<h3>Table of Contents</h3>
+					<ul>
+						<li>HTTP Fundamentals</li>
+						<li>How browser works</li>
+						<li>REST</li>
+						<li>Security</li>
+						<li>Common Problems with Web Applications</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>HTTP Fundamentals</h3>
+					<ul>
+						<li>Overview of HTTP</li>
+						<li>Brief History of HTTP</li>
+						<li>HTTP Basics</li>
+						<li>Session and Cookies</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>HTTP Overview</h3>
+					<div>Hyper text transfer protocol (HTTP) is the most adoped application protocol used today. It is the common language between clients and servers, enabling the modern web.  </div>
 				</section>
 
 				<section>
@@ -35,27 +66,32 @@
 					</section>
 
 					<section>
+						<h3>HTTP 0.9: One line protocol</h3>
 						<div>
 							HTTP/0.9 was release in 1991 by Tim Barnes Lee. <br />
 							It was a text based request, response protocol. <br />
-							Only HTML was supported. <br />
+							Only HTML was supported.<br />
 							After each request; connection was terminated. <br />
 						</div>
 					</section>
 
 					<section>
+						<h3>HTTP/1.0 : Rapid growth</h3>
 						<p>
 							Later on, HTTP/0.9 was extended to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other. Every connection required a 3 way handshake which was very wasteful. 
 						</p>
 					</section>
 					<section>
+						<h3>HTTP/1.1 : Internet Standard</h3>
 						<p>
-							In 1999, HTTP/1.1 was released.<br /> Persistent connections (keep alive) was introduced, chunked transfer encoding and host header were added. With host headers, it was possible to host multiple sites for an IP. It was a breakthrough. <br />
-							Connection header was introduced (Connection : keep-alive), which eliminated 3 way handshake for every request. Single TCP connection was sufficient for communication. 
+							In 1999, HTTP/1.1 was released.<br /> 
+							Persistent connections (keep alive) was introduced (which eliminated 3 way handshake for every request), chunked transfer encoding and host header were added. <br />
+							With host headers, it was possible to host multiple sites for an IP. It was a breakthrough. <br />
 						</p>
 					</section>
 
 					<section>
+						<h3>HTTP/2.0 : Improving Transport Performance</h3>
 						<p>
 							It was 2015 when HTTP/2 was release with several enhancements to prior versions, mostly targeting performance and common HTTP/1.1 problems.  
 						</p>
@@ -71,11 +107,37 @@
 				</section>
 
 				<section>
-					<h3>URLs</h3>
+					<section>
+						<h3>URLs</h3>
+						<div>Uniform Resource Locators (URLs) are used in the request message for communication.</div>
+					</section>
+					
+					<section>
+						<img src="images/http1-url-structure.png" />
+					</section>
 				</section>
 
 				<section>
-					<h3>Verbs</h3>
+					<section>
+						<h3>Verbs</h3>
+						<div>HTTP verbs are used to take an action on specific resource(s).</div>
+					</section>
+					<section>
+						<h3>GET</h3>
+						<div>Fetches a resource.</div>
+					</section>
+					<section>
+						<h3>POST</h3>
+						<div>Creates a new resource. POST has a payload that specifies the data required to create the resource.</div>
+					</section>
+					<section>
+						<h3>PUT</h3>
+						<div>Updates an existing resource. The payload may contain the data to be updated.</div>
+					</section>
+					<section>
+						<h3>Delete</h3>
+						<div>Deletes a resource		</div>
+					</section>
 				</section>
 
 				<section>
@@ -166,18 +228,146 @@
 				</section>
 
 				<section>
-					<section>SSL Handshake</section>
+					<h3>HTTP Compression</h3>
+					<div>
+						Compression helps reduce bandwidth usage and transfer size/speed. <br/>
+						HTTP compression is enabled on server side and client should support it.<br/>
+						Request-Header : Accept-Encoding: gzip, deflate <br/>
+						Response-Header: Content-Encoding: gzip, deflate
+					</div>
+				</section>
+
+				<section>
 					<section>
-						
+						<h3>SSL Handshake</h3>
+					</section>
+					<section>
+						<div>
+							<ul>
+							 	<li>The client issues a secure session request.</li>
+							 	<li>Server sends back x.509 certificate containing server's public key.</li>
+							 	<li>Client authenticates server's certificate against list of known <a href="https://en.wikipedia.org/wiki/Certificate_authority">CAs (Certificate Authority)</a>. If the certificate is not in the list, user is prompt to accept the certificate.</li>
+							 	<li>Client generates random symmetric key and encrypts it using server's public key.</li>
+							 	<li>Client and user now both have the symmetric key. Client send data using this symmetric key to the server during the session.</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3>TODO : SSL HANDSHAKE IMAGE</h3>
 					</section>
 				</section>
 
 				<section>
-					<section>HTTP Performance Optimization</section>
+					<section>
+						<h3>HTTP Performance Optimization</h3>
+					</section>
+
+					<section>
+						<h3></h3>
+					</section>
+
+					<section>
+						<div>
+							<strong>Latency:</strong> How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major performance bottleneck for HTTP which uses many round trips to the server.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>Bandwidth:</strong> Connection between two locations, can handle only so much data at a time before it is saturated. Bandwidth can be bottleneck depending on the amount of data and the capacity of the connection.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>Connection time:</strong> Establishing a connection requires a Round trip between the client and the server called the “Three Way Handshake.” This handshake time is generally related to the latency between the client and the server.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>TLS negotiation time:</strong> If the client is making an HTTPS connection, it needs to negotiate Transport Layer Security (TLS) the successor to Secure Socket Layer (SSL). This involves more round trips on top of server and client processing time.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>TTFB – Time to first byte:</strong> Time to first byte is the time passed from a client request to start receiving the response from the server. It is the sum of DNS lookup, Connection setup, TLS handshake.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>Content Download time, time to last byte or TTLB:</strong> This is the time for all the content to complete downloading to client.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>Start Render Time:</strong> This is the time when user start seeing something on the browser, or browser starts paint process.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>Document Complete: Page Load Time:</strong> This is the duration which is considered client completely downloaded the page and rendered it.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>DNS lookup:</strong> Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
+						</div>
+					</section>
+
 					<section>
 						<ul>
-							<li></li>
+							<li>Reducing number of HTTP requests</li>
+							<li>Client side caching</li>
+							<li>Domain sharding</li>
+							<li>Bundling and minification</li>
+							
 						</ul>
+					</section>
+
+					<section>
+						<h3>Reducing number of HTTP requests</h3>
+						<div>
+							
+						</div>
+					</section>
+
+					<section>
+						<h3>Client Side Caching</h3>
+						<div>
+							Nothing is faster than serving resources from the client's machine. You won't use any network resources.
+							<br />
+							Client side caching TTL can be set through the HTTP header <strong>“cache control”</strong> and the key <strong>“max-age” (in seconds)</strong>, or the <strong>“expires”</strong> header.
+							<br />
+							Static content like images, JS, CSS and other files can be versioned. Once the version changes, client makes a request to get the newer version from the server.
+							<br />
+							https://foo.com/styles.css?<strong>v=342</strong>
+
+						</div>
+					</section>
+
+					<section>
+						<h3>Domain Sharding</h3>
+						<div> 
+							<ul>
+								<li>Requesting more resources.</li>
+								<li>Requires more DNS lookups.</li>
+								<li></li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h3>Bundling and minification</h3>
+						<div>
+							Bundling and minification is good for reducing HTTP requests, which will have positive impact on the performance. <br />
+							CSS and JS can benefit from bundling and minification. Also, you can minify HTML content.
+						</div>
 					</section>
 				</section>
 
@@ -197,7 +387,7 @@
 					</section>
 
 					<section>
-						<strong>Multiple Connections</strong>
+						<h3>Multiple Connections</h3>
 
 						<p>
 							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
@@ -252,6 +442,21 @@
 						<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>
 						<p>Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</p>
 					</section>
+				</section>
+
+				<section>
+						<div>
+							Performance testing includes many types of tests.
+							<ul>
+							 	<li>Latency Test - Measures end to end transaction time.</li>
+							 	<li>Throughput Test - Measures number of concurrent transactions a system can handle.</li>
+							 	<li>Load Test - a boolean test, if the system can handle the load or not.</li>
+							 	<li>Stress Test - Finds out the breaking point of a system.</li>
+							 	<li>Endurance Test - Measures if there are any anomalies during tests.</li>
+							 	<li>Capacity Planning Test - Made to find out whether the system performs as expected based on capacity planning and provisioning.</li>
+							 	<li>Degradation Test - Made to find out when the system performance degrades.</li>
+							</ul>
+						</div>
 				</section>
 
 				<section>
