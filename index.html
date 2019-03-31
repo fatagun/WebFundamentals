@@ -69,7 +69,7 @@
 					<section>
 						<h3>HTTP 0.9: One line protocol</h3>
 						<div>
-							HTTP/0.9 was release in 1991 by Tim Barnes Lee. <br />
+							HTTP/0.9 was <a href="https://www.ietf.org/rfc/rfc1945.txt">released</a> in 1991 by Tim Barnes Lee. <br />
 							It was a text based request, response protocol. <br />
 							Only HTML was supported.<br />
 							After each request; connection was terminated. <br />
@@ -79,13 +79,13 @@
 					<section>
 						<h3>HTTP/1.0 : Rapid growth</h3>
 						<p>
-							Later on, HTTP/0.9 was extended to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other. Every connection required a 3 way handshake which was very wasteful. 
+							Later on, HTTP/0.9 was <a href="https://tools.ietf.org/html/rfc1945">extended</a> to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other. Every connection required a 3 way handshake which was very wasteful. 
 						</p>
 					</section>
 					<section>
 						<h3>HTTP/1.1 : Internet Standard</h3>
 						<p>
-							In 1999, HTTP/1.1 was released.<br /> 
+							In 1999, HTTP/1.1 was <a href="https://www.w3.org/Protocols/rfc2616/rfc2616.html">released</a>.<br /> 
 							Persistent connections (keep alive) was introduced (which eliminated 3 way handshake for every request), chunked transfer encoding and host header were added. <br />
 							With host headers, it was possible to host multiple sites for an IP. It was a breakthrough. <br />
 						</p>
@@ -94,7 +94,7 @@
 					<section>
 						<h3>HTTP/2.0 : Improving Transport Performance</h3>
 						<p>
-							It was 2015 when HTTP/2 was release with several enhancements to prior versions, mostly targeting performance and common HTTP/1.1 problems.  
+							It was 2015 when HTTP/2 <a href="https://tools.ietf.org/html/rfc7540">released</a> with several enhancements to prior versions, mostly targeting performance and common HTTP/1.1 problems.  
 						</p>
 					</section>
 				</section>
@@ -113,7 +113,9 @@
 
 					<section>
 						<h3>Request/Response Model</h3>
-						<div>Every request gets a response. Client sends a request and server returns a response. </div>
+						<div>
+							Client communicates with the server using messages (request and response message).<br />
+							Every request gets a response. Client sends a request and server returns a response. </div>
 					</section>
 				</section>
 
@@ -227,6 +229,20 @@
 				</section>
 
 				<section>
+					<h3>Content Types</h3>
+					<div>
+						Various content types are supported by HTTP
+						<ul>
+							<li>JSON</li>
+							<li>XML</li>
+							<li>HTML</li>
+							<li>Images</li>
+							<li>Video</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
 					<h3>Headers</h3>
 				</section>
 
@@ -330,14 +346,16 @@
 					</section>
 
 					<section>
-						<ul>
-							<li>Reducing number of HTTP requests</li>
-							<li>Client side caching</li>
-							<li>Domain sharding</li>
-							<li>Bundling and minification</li>
-							<li>DNS prefetch/resource hints</li>
-							<li>Image Striping</li>
-						</ul>
+						<div>
+							<ul>
+								<li>Reducing number of HTTP requests</li>
+								<li>Client side caching</li>
+								<li>Domain sharding</li>
+								<li>Bundling and minification</li>
+								<li>DNS prefetch/resource hints</li>
+								<li>Image Striping</li>
+							</ul>
+						</div>
 					</section>
 
 					<section>
@@ -416,12 +434,12 @@
 					<section>
 						<h3>Multiple Connections</h3>
 
-						<p>
+						<div>
 							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
-						</p>
-						<p>
+						</div>
+						<div>
 							Establishing a connection requires 3 way handshake.
-						</p>
+						</div>
 					</section>
 				</section>
 
@@ -431,72 +449,71 @@
 					</section>
 					<section>
 						<strong>#1: Big systems fail more often than small systems.</strong>
-						<p>Big systems have more external and internal dependencies along with many moving parts. Therefore, big systems should have many defensive mechanisms in place.</p>
+						<div>Big systems have more external and internal dependencies along with many moving parts. Therefore, big systems should have many defensive mechanisms in place.</div>
 					</section>
 					<section>
 						<strong>#2: Blocked threads are the number one cause of most failures.</strong>
-						<p>Slow applications and hung threads are the most popular reasons of failures. These reasons lead to cascading failures and chain reactions. Blocked/hung threads can happen due to several reasons like deadlocks, starvation and live locks. Hung thread detection policies, timeouts, circuit breakers and bulkheads can prevent these failures.</p>
+						<div>Slow applications and hung threads are the most popular reasons of failures. These reasons lead to cascading failures and chain reactions. Blocked/hung threads can happen due to several reasons like deadlocks, starvation and live locks. Hung thread detection policies, timeouts, circuit breakers and bulkheads can prevent these failures.</div>
 					</section>
 					<section>
 						<strong>#3: Integration points are number one killer in any system.</strong>
-						<p>Every integration point eventually fails, however a failure in the integration point shouldn’t take down the whole application. Cascading failures occur when problems in one integration point propagates. Failures in integrated services becomes your problem. It even become more serious if you are not prepared for it.</p>
+						<div>Every integration point eventually fails, however a failure in the integration point shouldn’t take down the whole application. Cascading failures occur when problems in one integration point propagates. Failures in integrated services becomes your problem. It even become more serious if you are not prepared for it.</div>
 					</section>
 					<section>
 						<strong>#4: Tight coupled systems fail more often than loose coupled systems.</strong>
-						<p>Decoupling middleware is a good practice to enable loose coupling for integration. This principle is applicable and best practice for cloud native applications.</p>
+						<div>Decoupling middleware is a good practice to enable loose coupling for integration. This principle is applicable and best practice for cloud native applications.</div>
 					</section>
 					<section>
 						<strong>#5: High traffic site's Resource/Connections pools get drained very quickly.</strong>
-						<p>Resource/Connection pool have limitations. They can run out of resources rapidly and application performance will start degrading.</p>
+						<div>Resource/Connection pool have limitations. They can run out of resources rapidly and application performance will start degrading.
+						</div>
 					</section>
 					<section>
 						<strong>#6: Unbalanced capacities causes failures and scalability problems for applications.</strong>
-						<p>If the capacities are not aligned, then you have a problem. Capacity and sizing should be planned accordingly.</p>
+						<div>If the capacities are not aligned, then you have a problem. Capacity and sizing should be planned accordingly.</div>
 					</section>
 					<section>
 						<strong>#7: Never trust a system you have no control over.</strong>
-						<p>The downstream application which is running a blocking code, can take your application down.</p>
+						<div>The downstream application which is running a blocking code, can take your application down.</div>
 					</section>
 					<section>
 						<strong>#8: Slow applications gets more traffic.</strong>
-						<p>When an application is slow, users hit re-load button or F5 many times to reach to the application which causes more traffic.</p>
+						<div>When an application is slow, users hit re-load button or F5 many times to reach to the application which causes more traffic.</div>
 					</section>
 					<section>
 						<strong>#9: Fail fast all the time and retry gradually.</strong>
-						<p>Exponential back off, Circuit breakers and timeouts should be embraced. User friendly error codes or default messages should be presented to the user until the stability is established.</p>
+						<div>Exponential back off, Circuit breakers and timeouts should be embraced. User friendly error codes or default messages should be presented to the user until the stability is established.</div>
 					</section>
 					<section>
 						<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>
-						<p>Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</p>
+						<div>Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</div>
 					</section>
 				</section>
 
 				<section>
+					<section>
+						<h3>Performance testing</h3>
+					</section>
+					<section>
 						<div>
-							Performance testing includes many types of tests.
 							<ul>
 							 	<li>Latency Test - Measures end to end transaction time.</li>
 							 	<li>Throughput Test - Measures number of concurrent transactions a system can handle.</li>
 							 	<li>Load Test - a boolean test, if the system can handle the load or not.</li>
 							 	<li>Stress Test - Finds out the breaking point of a system.</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<div>
+							<ul>
 							 	<li>Endurance Test - Measures if there are any anomalies during tests.</li>
 							 	<li>Capacity Planning Test - Made to find out whether the system performs as expected based on capacity planning and provisioning.</li>
 							 	<li>Degradation Test - Made to find out when the system performance degrades.</li>
 							</ul>
 						</div>
-				</section>
-
-				<section>
-					<section>
-						<h3>Characteristics of Scalable Systems</h3>
 					</section>
-					<section>
-						<ul>
-							<li>Increase the resources should proportionally increase the throughput.</li>
-							<li></li>
-						</ul>
-					</section>
-				</section>
+				</section> 
 			</div>
 		</div>
 
