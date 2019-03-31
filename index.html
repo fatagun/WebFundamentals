@@ -28,7 +28,8 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Web Fundamentals for Executives</h1>
+					<h3>Web Fundamentals for</h3>
+					<h3>IT executives</h3>
 				</section>
 
 				<section>
@@ -103,7 +104,17 @@
 				</section>
 
 				<section>
-					<h3>Request/Response Model</h3>
+					<section>
+						<h3>Request/Response Model</h3>
+						<div style="text-align: center;">
+							<img src="images/request_response.png" />
+						</div>
+					</section>
+
+					<section>
+						<h3>Request/Response Model</h3>
+						<div>Every request gets a response. Client sends a request and server returns a response. </div>
+					</section>
 				</section>
 
 				<section>
@@ -212,15 +223,11 @@
 				</section>
 
 				<section>
+					<h3>Request/Response format</h3>
+				</section>
+
+				<section>
 					<h3>Headers</h3>
-				</section>
-
-				<section>
-					<h3>Request format</h3>
-				</section>
-
-				<section>
-					<h3>Response format</h3>
 				</section>
 
 				<section>
@@ -239,7 +246,7 @@
 
 				<section>
 					<section>
-						<h3>SSL Handshake</h3>
+						<h3>SSL/TLS Handshake</h3>
 					</section>
 					<section>
 						<div>
@@ -259,11 +266,7 @@
 
 				<section>
 					<section>
-						<h3>HTTP Performance Optimization</h3>
-					</section>
-
-					<section>
-						<h3></h3>
+						<h3>HTTP Performance Causalities</h3>
 					</section>
 
 					<section>
@@ -310,7 +313,7 @@
 
 					<section>
 						<div>
-							<strong>Document Complete: Page Load Time:</strong> This is the duration which is considered client completely downloaded the page and rendered it.
+							<strong>Document Complete, Page Load Time:</strong> This is the duration which is considered client completely downloaded the page and rendered it.
 						</div>
 					</section>
 
@@ -319,6 +322,12 @@
 							<strong>DNS lookup:</strong> Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
 						</div>
 					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Performance Optimization Techniques</h3>
+					</section>
 
 					<section>
 						<ul>
@@ -326,28 +335,28 @@
 							<li>Client side caching</li>
 							<li>Domain sharding</li>
 							<li>Bundling and minification</li>
-							
+							<li>DNS prefetch/resource hints</li>
+							<li>Image Striping</li>
 						</ul>
 					</section>
 
 					<section>
 						<h3>Reducing number of HTTP requests</h3>
 						<div>
-							
+							This is the most important in performance. The more HTTP requests, the slower you page is. 
 						</div>
 					</section>
 
 					<section>
 						<h3>Client Side Caching</h3>
 						<div>
-							Nothing is faster than serving resources from the client's machine. You won't use any network resources.
+							Nothing is faster than serving resources from the client's machine. No network resources will be used.
 							<br />
 							Client side caching TTL can be set through the HTTP header <strong>“cache control”</strong> and the key <strong>“max-age” (in seconds)</strong>, or the <strong>“expires”</strong> header.
 							<br />
 							Static content like images, JS, CSS and other files can be versioned. Once the version changes, client makes a request to get the newer version from the server.
 							<br />
 							https://foo.com/styles.css?<strong>v=342</strong>
-
 						</div>
 					</section>
 
@@ -355,7 +364,8 @@
 						<h3>Domain Sharding</h3>
 						<div> 
 							<ul>
-								<li>Requesting more resources.</li>
+								<
+								<li>Requests more resources.</li>
 								<li>Requires more DNS lookups.</li>
 								<li></li>
 							</ul>
@@ -369,6 +379,23 @@
 							CSS and JS can benefit from bundling and minification. Also, you can minify HTML content.
 						</div>
 					</section>
+
+					<section>
+						<h3>DNS prefetch/resource hints</h3>
+						<div>
+							Typically DNS is queried once the browser completes rendering HTML.<br />
+
+							DNS prefetch and resourse hints tell the browser to resolve DNS to HTML rendering. <br />
+						</div>
+					</section>
+
+					<section>
+						<h3>Using Stripes for images</h3>
+						<div>
+							STRIPE SAMPLE
+						</div>
+					</section>
+
 				</section>
 
 				<section>
