@@ -143,13 +143,37 @@
 						<h3>POST</h3>
 						<div>Creates a new resource. POST has a payload that specifies the data required to create the resource.</div>
 					</section>
+
+					<section>
+						<h3>GET vs POST</h3>
+						<div>
+							<ul>
+								<li>GET can be cached and bookmarked</li>
+								<li>Get is visible to eye, but POST is not.</li>
+								<li>GET has length limitations. Post does not have any length limitations.</li>
+								<li>GET is idempotent and safe.</li>
+								<li>POST is not idempotent and not safe.</li>
+							</ul>
+						</div>	
+					</section>
+
 					<section>
 						<h3>PUT</h3>
 						<div>Updates an existing resource. The payload may contain the data to be updated.</div>
 					</section>
 					<section>
-						<h3>Delete</h3>
-						<div>Deletes a resource		</div>
+						<h3>DELETE</h3>
+						<div>Deletes a resource</div>
+					</section>
+
+					<section>
+						<h3>HEAD</h3>
+						<div>Lightweight GET.</div>
+					</section>
+
+					<section>
+						<h3>PATCH</h3>
+						<div>Partial update. </div>
 					</section>
 				</section>
 
@@ -238,6 +262,7 @@
 							<li>HTML</li>
 							<li>Images</li>
 							<li>Video</li>
+							<li>and many more.</li>
 						</ul>
 					</div>
 				</section>
@@ -337,6 +362,18 @@
 						<div>
 							<strong>DNS lookup:</strong> Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
 						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Session and Cookies</h3>
+					     <div>By default HTTP is stateless, session ,cookies and some browser support enables storing state.</div>
+					</section>
+
+					<section>
+						<h3>Cookies</h3>
+						<div>Cookies are small piece of data (in the shape of key value pairs) stored on the browser and sent to server via request headers per each request. In HTTP/1.1 Headers are not compressed so keeping cookies small is important.</div>
 					</section>
 				</section>
 
