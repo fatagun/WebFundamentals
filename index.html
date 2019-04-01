@@ -77,11 +77,26 @@
 					</section>
 
 					<section>
+						<h3>HTTP 0.9</h3>
+						<div>
+							<im src="images/http0.9.PNG" />
+						</div>
+					</section>
+
+					<section>
 						<h3>HTTP/1.0 : Rapid growth</h3>
 						<p>
 							Later on, HTTP/0.9 was <a href="https://tools.ietf.org/html/rfc1945">extended</a> to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other. Every connection required a 3 way handshake which was very wasteful. 
 						</p>
 					</section>
+
+					<section>
+						<h3>HTTP 1.0</h3>
+						<div>
+							<im src="images/http1.0.PNG" />
+						</div>
+					</section>
+
 					<section>
 						<h3>HTTP/1.1 : Internet Standard</h3>
 						<p>
@@ -284,7 +299,41 @@
 				</section>
 
 				<section>
-					<h3>Request/Response format</h3>
+					<section>
+						<h3>Request/Response format</h3>
+						<div>
+							<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html">Request</a> and <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6">response</a> messages has formats. 
+						</div>
+					</section> 
+
+					<section>
+						<h3>Request format</h3>
+						<div>
+							<code class="hljs javascript">
+								Request       = Request-Line  <br />             
+		                        *(( general-header        <br />    
+		                         | request-header         <br />    
+		                         | entity-header ) CRLF)  <br />    
+		                        CRLF <br />   
+		                        [ message-body ]          <br />    
+							</code>
+						</div>
+
+					</section>
+
+					<section>
+						<h3>Response format</h3>
+						<div>
+							<code>
+								Response      = Status-Line               <br />   
+		                       *(( general-header        <br />   
+		                        | response-header        <br />   
+		                        | entity-header ) CRLF)  <br />   
+		                       CRLF <br />   
+		                       [ message-body ]          <br />   
+							</code>
+						</div>
+					</section>
 				</section>
 
 				<section>
@@ -333,7 +382,7 @@
 
 					<section>
 						 <img src="images/internetmodel.PNG" />
-					</section>
+					</section> 
 
 					<section>
 						<img src="images/3wayhandshake.PNG" />
@@ -350,6 +399,37 @@
 					<section>
 						<div>
 							A packet or <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> packet in specific, is series of bytes, encapsulated in a format or data structure called <a href="https://en.wikipedia.org/wiki/Frame_(networking)">frame</a>. Frames contain several information such as how long the packet is, how it should be delivered, where it is coming from and going to. <strong>A packet's payload can effectively contain 1460 bytes at most</strong>.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							 Slow start is used to detect the current state of the network. If there is a congestion in the network, new connections shouldn't make it worse. Slow start allows the sender to send additional unacknowledged packet for every acknowledged packet it receives.  This means that after initial connection, and one acknowledged packets, sender sends two, after getting acknowledgement for two packets, sender can send four and so on. So it is power of two. This geometric growth soon reaches an upper limit defined in the protocol at which point the connection will enter what is called the <strong>congestion avoidance phase</strong>.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							It usually takes a few round trips to get the optimal congestion window size which are very precious to determine the performance. Usually operating systems start with 4 packets which makes 5840 bytes for initial congestion window size which sender needs to wait for acknowledgements.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							Today, web pages have size of 2MB of data including images, css, js and other files. In a perfect network conditions, it takes around 9 round trips to transmit the data to the client.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							Browsers commonly opens up six connections to a particular host. Congestion window needs to occur six times in parallel. TCP will make sure that those connections play nicely together, but it does not guarantee that their performance will be optimal.
+						</div>
+					</section>
+
+					<section> 
+						<div>
+							TCP Provides reliability and ordering. <br />
+							Avoid congestion with flow control. 
 						</div>
 					</section>
 				</section>
