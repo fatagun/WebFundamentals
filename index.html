@@ -115,7 +115,42 @@
 						<h3>Request/Response Model</h3>
 						<div>
 							Client communicates with the server using messages (request and response message).<br />
-							Every request gets a response. Client sends a request and server returns a response. </div>
+							Every request gets a response. Client sends a request and server returns a response. <br />
+							This is also called a HTTP transaction.
+						</div>
+					</section>
+
+					<section>
+						<h3>Requests</h3>
+						<div>
+							<code class="hljs javascript">
+								GET / HTTP/1.1 <br/>
+								Accept: image/jpeg <br/>
+								Accept-Language: en-us <br/>
+								Accept-Encoding: gzip, deflate <br/>
+								User-Agent: Mozilla/4.0 (compatible; MSIE 5.01; Windows NT)  <br/>
+								Host: ibm.com  <br/>
+								Connection: Keep-Alive <br/>
+							</code>
+						</div>
+					</section>
+
+					<section>
+						<h3>Responses</h3>
+						<div>
+							<code class="hljs">
+								HTTP/1.1 200 OK <br/>
+								Date: Mon, 06 Dec 1999 20:54:26 GMT <br/>
+								Server: Apache/1.3.6 (Unix) <br/>
+								Last-Modified: Mon, 01 Apr 2019 14:06:11 GMT <br/>
+								ETag: "2f5cd-964-381e1bd6" <br/>
+								Accept-Ranges: bytes <br/>
+								Content-length: 327 <br/>
+								Connection: close<br/>
+								Content-type: text/html<br/>
+								.... Content here ....
+							</code>
+						</div>
 					</section>
 				</section>
 
