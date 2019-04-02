@@ -22,6 +22,12 @@
 			div {
 			    text-align: left;
 			}
+
+			.reveal section img {
+ 				border:none; 
+ 				box-shadow: none; 
+ 				background: #fff; 
+ 			};
 		</style>
 	</head>
 	<body>
@@ -1097,6 +1103,65 @@ Content-type: text/html
 						</div>
 					</section>
 				</section> 
+
+				<section>
+					<section>
+						<h3>How browsers work</h3>
+					</section>
+
+					<section>
+						<h3>The user interface</h3>
+						<div>
+							This includes the address bar, back/forward button, bookmarking menu, etc. Every part of the browser display except the window where you see the requested page.
+						</div>
+					</section>
+
+					<section>
+						<h3>The browser engine</h3>
+						<div>
+							Marshals actions between the UI and the rendering engine.
+						</div>
+					</section>
+
+					<section>
+						<h3>The rendering engine</h3>
+						<div>
+							 Responsible for displaying requested content. For example if the requested content is HTML, the rendering engine parses HTML and CSS, and displays the parsed content on the screen.
+						</div>
+					</section>
+
+					<section>
+						<h3>Networking</h3>
+						<div>
+							For network calls such as HTTP requests, using different implementations for different platform behind a platform-independent interface.
+						</div>
+					</section>
+
+					<section>
+						<h3>UI backend</h3>
+						<div>
+							Used for drawing basic widgets like combo boxes and windows. This backend exposes a generic interface that is not platform specific. Underneath it uses operating system user interface methods.
+						</div>
+					</section>
+
+					<section>
+						<h3>JavaScript interpreter</h3>
+						<div>
+							Used to parse and execute JavaScript code.
+						</div>
+					</section>
+
+					<section>
+						<h3>Data storage</h3>
+						<div>
+							This is a persistence layer. The browser may need to save all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexedDB, WebSQL and FileSystem.
+						</div>
+					</section>
+
+					<section>
+						<img src="images/browserlayers.png" />
+					</section>
+				</section>
 
 				<section>
 					<section>
