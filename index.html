@@ -939,6 +939,72 @@
 
 				<section>
 					<section>
+						<h3>HTTP Security</h3>
+					</section>
+
+					<section>
+						<h3>Redirect Validation</h3>
+						<div>
+							Unvalidated redirects and forwards can send users to attacker's site. <br />
+							HTTP redirects with 3xx (except 304 , not modified).Redirects to relative URIs can be allowed, as well as redirects to the same site.
+						</div>
+					</section>
+
+					<section>
+						<h3>CSP (Content Security Policy)</h3>
+						<div>
+							Code from https://mybank.com should only have access to https://mybank.com’s data, and https://evil.example.com should certainly never be allowed access. <br /> 
+							Content-Security-Policy (CSP) provides a safety net for injection attacks by specifying a whitelist from where various content in a webpage can be loaded from.
+						</div>
+					</section>
+
+					<section>
+						<h3>Upgrade insecure requests</h3>
+						<div>
+							Upgrades all requests triggered by a page from HTTP to HTTPS. If there is a none secure resource on a page, it will be upgraded to a secure version.
+						</div>
+					</section>
+
+					<section>
+						<h3>HSTS : Strict Transport Security</h3>
+						<div>
+							HSTS is server directire that informs user how to handle connection at the beginning through HTTPS. There is a very small attack window in the initial connection. Browsers save this information internally for a defined period of time. <br />
+							1. Load all content from your domain over HTTPS. <br />
+							2. Refuses to connect in case of certificate errors and warnings
+						</div>
+					</section>
+
+					<section>
+						<h3>X-Frame Options</h3>
+						<div>
+							Tells the browser if `iframe, frame, embed or object` can be used in a page or not. If so how to use it. Avoid clickjackig attacks.
+						</div>
+					</section>
+
+					<section>
+						<h3>X-Download-Options</h3>
+						<div>
+							Disables to option to open a file directly on download.
+						</div>
+					</section>
+
+					<section>
+						<h3>X-XSS-Protection</h3>
+						<div>
+							If browser detects an XSS attack, it will modify the page to block the attack.
+						</div>
+					</section>
+
+					<section>
+						<h3>X-Content-Type-Options</h3>
+						<div>
+							If browser detects an XSS attack, it will modify the page to block the attack.
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
 						<h3>Common Problems with Web Applications</h3>
 					</section>
 
