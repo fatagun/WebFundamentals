@@ -317,8 +317,26 @@
 					</section> 
 
 					<section>
+						<h3>Request format</h3>
 						<div>
-							<img src="images/requestresponse.png" />
+							[Method] [URL] [Version] <br />
+							[Headers] <br />
+							[Body]
+						</div>
+					</section>
+
+					<section>
+						<h3>Response format</h3>
+						<div>
+							[Version] [Status] [Reason] <br />
+							[Headers] <br />
+							[Body]
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<img src="images/requestresponse.jpg" />
 						</div>
 					</section>
 
@@ -355,8 +373,16 @@
 				<section>
 					<section>
 						<h3>Content/Mime Types</h3>
+					</section>
+
+					<section>
 						<div>
 							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document, file, or assortment of bytes.
+						</div>
+					</section>
+
+					<section>
+						<div>
 							<ul>
 								<li>JSON</li>
 								<li>XML</li>
@@ -370,23 +396,30 @@
 
 					<section>
 						<div>
-							Structure of a mime type:<br />
-							`type/subtype` <br />
+							Structure of a mime type: `type/subtype` <br />
 							Example: application/json, text/html, text/csv, text/plain, image/png, image/jpg
 						</div>
 					</section>
 				</section>
 
 				<section>
-					<h3>Content Negotiation</h3>
-					<div>
-						Content negotiation refers to mechanisms defined as a part of HTTP that make it possible to serve different versions of a document (or more generally, representations of a resource) at the same URI, so that user agents can specify which version fits their capabilities the best.
-					</div>
+					<section>
+						<h3>Content Negotiation</h3>
+					</section>
+
+					<section>
+						<div>
+							Content negotiation refers to mechanisms defined as a part of HTTP that make it possible to serve different versions of a document (or more generally, representations of a resource) at the same URI, so that user agents can specify which version fits their capabilities the best.
+						</div>
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h3>Headers</h3>
+					</section>
+
+					<section>
 						<div>
 							There are 4 types of HTTP headers:<br/>
 							General Headers: date, connection etc. Used by both clients and server.<br/>
@@ -395,6 +428,15 @@
 							Entity Headers: Used by servers to describe entities, resources. <br/>
 						</div>
 					</section>
+
+					<section>
+						<img src="images/httpheaders.png">
+					</section>
+
+					<section>
+						<img src="images/httpresponseheaders.png" />
+					</section>
+
 					<section>
 						<img src="images/requestheaders.PNG" />
 					</section>
@@ -407,6 +449,9 @@
 				<section>
 					<section>
 						<h3>HTTP Connections</h3>
+					</section>
+
+					<section>
 						<div>
 							The internet consists of 5 layers of OSI model. <br />
 							Everything runs on transport layer which for HTTP is TCP.
@@ -478,15 +523,20 @@
 				</section>
 
 				<section>
-					<h3>HTTP Compression</h3>
-					<div>
-						Compression helps reduce bandwidth usage and transfer size/speed. 
-						<br/>
-						HTTP compression is enabled on server side and client should support it.<br/>
-						Request-Header : Accept-Encoding: gzip, deflate <br/>
-						Response-Header: Content-Encoding: gzip, deflate <br />
-						Other compression types: ie brotli, protobuf is available.
-					</div>
+					<section>
+						<h3>HTTP Compression</h3>
+					</section>
+
+					<section>
+						<div>
+							Compression helps reduce bandwidth usage and transfer size/speed. 
+							<br/>
+							HTTP compression is enabled on server side and client should support it.<br/>
+							Request-Header : Accept-Encoding: gzip, deflate <br/>
+							Response-Header: Content-Encoding: gzip, deflate <br />
+							Other compression types: ie brotli, protobuf is available.
+						</div>
+					</section>
 				</section>
 
 				<section>
@@ -516,7 +566,50 @@
 
 				<section>
 					<section>
-						<h3>HTTP Performance Causalities</h3>
+						<h3>HTTP Caching</h3>
+					</section>
+
+					<section>
+						<strong>Time based caching</strong>
+						<div>
+							<code>
+								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
+								Expires: Sat 22 Jan 2029 12:00:00 GMT<br />
+								Cache-Control: max-age=315360000<br />
+							</code>
+						</div>
+					</section>
+
+					<section>
+						<strong>Content based caching</strong>
+						<div>
+							<code>
+								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
+								Etag: "8e5bcd-59f-segedbht"<br /> 
+							</code>
+						</div>
+					</section>
+
+					<section>
+						<strong>HTTP Request and Caching</strong>
+						<div>
+							Request:<br />
+							<code>
+								if-modified-since: Wed, 01 Jan 2017 17:33:12 GMT <br />
+							</code>
+
+							Response: <br />
+							<code>
+								HTTP/1.1 304 Not Modified <br />
+								Expires: Sat, 11 April 2018 17:33.12
+							</code>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Important HTTP Concepts</h3>
 					</section>
 
 					<section>
@@ -545,44 +638,51 @@
 					</section>
 
 					<section>
+						<h3>Connection Time</h3>
 						<div>
-							<strong>Connection time:</strong> Establishing a connection requires a Round trip between the client and the server called the “Three Way Handshake.” This handshake time is generally related to the latency between the client and the server.
+							Establishing a connection requires a Round trip between the client and the server called the “Three Way Handshake.” This handshake time is generally related to the latency between the client and the server.
 						</div>
 					</section>
 
 					<section>
+						<h3>TLS negotiation time</h3>
 						<div>
-							<strong>TLS negotiation time:</strong> If the client is making an HTTPS connection, it needs to negotiate Transport Layer Security (TLS) the successor to Secure Socket Layer (SSL). This involves more round trips on top of server and client processing time.
+							If the client is making an HTTPS connection, it needs to negotiate Transport Layer Security (TLS) the successor to Secure Socket Layer (SSL). This involves more round trips on top of server and client processing time.
 						</div>
 					</section>
 
 					<section>
+						<h3>TTFB – Time to first byte</h3>
 						<div>
-							<strong>TTFB – Time to first byte:</strong> Time to first byte is the time passed from a client request to start receiving the response from the server. It is the sum of DNS lookup, Connection setup, TLS handshake.
+							 Time to first byte is the time passed from a client request to start receiving the response from the server. It is the sum of DNS lookup, Connection setup, TLS handshake.
 						</div>
 					</section>
 
 					<section>
+						<h3>TTLB - Time to last byte</h3>
 						<div>
 							<strong>Content Download time, time to last byte or TTLB:</strong> This is the time for all the content to complete downloading to client.
 						</div>
 					</section>
 
 					<section>
+						<h3>Start Render Time</h3>
 						<div>
-							<strong>Start Render Time:</strong> This is the time when user start seeing something on the browser, or browser starts paint process.
+							This is the time when user start seeing something on the browser, or browser starts paint process.
 						</div>
 					</section>
 
 					<section>
+						<h3>Document Complete, Page Load Time</h3>
 						<div>
-							<strong>Document Complete, Page Load Time:</strong> This is the duration which is considered client completely downloaded the page and rendered it.
+							 This is the duration which is considered client completely downloaded the page and rendered it.
 						</div>
 					</section>
 
 					<section>
+						<h3>DNS lookup</h3>
 						<div>
-							<strong>DNS lookup:</strong> Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
+							Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
 						</div>
 					</section>
 				</section>
@@ -590,7 +690,12 @@
 				<section>
 					<section>
 						<h3>Session and Cookies</h3>
-					     <div>By default HTTP is stateless, session ,cookies and some browser support enables storing state.</div>
+					</section>
+
+					<section>
+						<div>
+							By default HTTP is stateless, session ,cookies and some browser support enables storing state.
+						</div>
 					</section>
 
 					<section>
@@ -599,8 +704,16 @@
 					</section>
 
 					<section>
-						<h3>Session</h3>
-						<div>????????</div>
+						<h3>Web/HTTP Session</h3>
+						<div>
+							Web/HTTP session is created in server and identified by a unique key (session id). Session is a data storage (hash table/dictionary) that contains data in key/value pair. 
+						</div>
+					</section>
+
+					<section> 
+						<div>
+							User session contains information about user across multiple HTTP requests.Session ID can be stored in cookies or URL.
+						</div>
 					</section>
 				</section>
 
@@ -674,7 +787,7 @@
 					<section>
 						<h3>Using Stripes for images</h3>
 						<div>
-							STRIPE SAMPLE
+							<img src="images/sprite-sheet.png" />
 						</div>
 					</section>
 
@@ -683,7 +796,9 @@
 				<section>
 					<section>
 						<h3>Problems with HTTP/1.1</h3>
+					</section>
 
+					<section>
 						<div>
 							<ul>
 							 	<li>It wasn’t designed for todays web pages, ie: 100+ HTTP requests, and 2MB+ page size.</li>
