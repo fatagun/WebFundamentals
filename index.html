@@ -67,8 +67,21 @@
 					<section>
 						<h3>Overview</h3>
 					</section>
+
 					<section>
-						<div>Hyper text transfer protocol (HTTP) is the most adoped application protocol used today. It is the common language between clients and servers, enabling the modern web.</div>
+						<div>
+							Hyper text transfer protocol (HTTP) is the most adoped application protocol used today. It is the common language between clients and servers, enabling the modern web.
+						</div>
+					</section>
+
+					<section>
+						<h3>HTTP vs WWW</h3>
+					</section>
+
+					<section>
+						<div>
+							HTTP is the protocol. WWW (world wide web) is the concept that uses web pages. WWW uses HTTP to serve web pages. 
+						</div>
 					</section>
 				</section>
 
@@ -79,7 +92,7 @@
 
 					<section>
 						<div>
-							Initial specs of HTTP was very simple. <br />
+							Initial specs of HTTP was very simple.
 							<img data-src="images/originalhttp.png" />
 						</div>
 					</section>
@@ -134,6 +147,11 @@
 				</section> 
 
 				<section data-transition="slide" data-background="#CCD1D1" data-background-transition="zoom">
+
+					<section>
+						<h3>Basic Concepts</h3>
+					</section>
+
 					<section>
 						<h3>Request/Response Model</h3>
 					</section>
@@ -150,9 +168,7 @@
 							This is also called a HTTP transaction.
 						</div>
 					</section>
-				</section>
 
-				<section>
 					<section>
 						<h3>URLs</h3>
 					</section>
@@ -164,21 +180,7 @@
 					<section>
 						<img src="images/http1-url-structure.png" />
 					</section>
-				</section>
 
-				<section data-transition="slide-in fade-out">
-					<section>
-						<h3>HTTP vs WWW</h3>
-					</section>
-
-					<section>
-						<div>
-							HTTP is the protocol. WWW (world wide web) is the concept that uses web pages. WWW uses HTTP to serve web pages. 
-						</div>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#01BD9B" data-background-transition="fade">
 					<section>
 						<h3>Verbs</h3>
 					</section>
@@ -229,9 +231,7 @@
 						<h3>PATCH</h3>
 						<div>Partial update of a resource.</div>
 					</section>
-				</section>
 
-				<section data-transition="slide" data-background="#03B3D6" data-background-transition="convex">
 					<section>
 						<h3>HTTP Status Codes</h3>
 					</section>
@@ -308,9 +308,7 @@
 					<section>
 						More at: <a href="https://httpstatuses.com/" style="color: blue;" target="firat">Http statuses</a>
 					</section>
-				</section>
 
-				<section data-transition="fade-in slide-out" data-background-color="#F9E79F">
 					<section>
 						<h3>Request/Response format</h3>
 						<div>
@@ -402,9 +400,6 @@ Content-type: text/html
 						<img src="images/requestresponse.jpg" />
 					</section>
 
-				</section>
-
-				<section data-transition="zoom" data-background-color="#2874A6">
 					<section>
 						<h3>Content/Mime Types</h3>
 					</section>
@@ -434,9 +429,7 @@ Content-type: text/html
 							Example: application/json, text/html, text/csv, text/plain, image/png, image/jpg
 						</div>
 					</section>
-				</section>
 
-				<section>
 					<section>
 						<h3>Content Negotiation</h3>
 					</section>
@@ -446,9 +439,7 @@ Content-type: text/html
 							Content negotiation refers to mechanisms defined as a part of HTTP that make it possible to serve different versions of a document (or more generally, representations of a resource) at the same URI, so that user agents can specify which version fits their capabilities the best.
 						</div>
 					</section>
-				</section>
 
-				<section>
 					<section>
 						<h3>Headers</h3>
 					</section>
@@ -478,6 +469,76 @@ Content-type: text/html
 					<section>
 						<img src="images/responseheaders.PNG" />
 					</section> 
+
+					<section>
+						<h3>HTTP Compression</h3>
+					</section>
+
+					<section>
+						<div>
+							Compression helps reduce bandwidth usage and transfer size/speed. 
+							<br/>
+							HTTP compression is enabled on server side and client should support it.<br/>
+						</div>
+					</section>
+
+					<section>
+						<div>
+							Request-Header : Accept-Encoding: gzip, deflate <br/>
+							Response-Header: Content-Encoding: gzip, deflate <br />
+							Other compression types: ie brotli, protobuf is available.
+						</div>
+					</section>
+
+					<section>
+						<h3>HTTP Caching</h3>
+					</section>
+
+					<section>
+						<strong>Time based caching</strong>
+						<div>
+							<code>
+								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
+								Expires: Sat 22 Jan 2029 12:00:00 GMT<br />
+								Cache-Control: max-age=315360000<br />
+							</code>
+						</div>
+					</section>
+
+					<section>
+						<strong>Content based caching</strong>
+						<div>
+							<code>
+								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
+								Etag: "8e5bcd-59f-segedbht"<br /> 
+							</code>
+						</div>
+					</section>
+
+					<section>
+						<strong>HTTP Request and Response Caching</strong>
+						<div>
+							Request:<br />
+							<code>
+								if-modified-since: Wed, 01 Jan 2017 17:33:12 GMT <br />
+							</code>
+
+							Response: <br />
+							<code>
+								HTTP/1.1 304 Not Modified <br />
+								Expires: Sat, 11 April 2018 17:33.12
+							</code>
+						</div>
+					</section>
+
+					<section>
+						<strong>Cache Modes</strong>
+						<div>
+							Private: within a browser URLs, browsing history and web content. They are generally small and specific to a user. <br />
+							Public: Can be cached in down streams such as proxies, CDN etc. 
+						</div>
+					</section>
+
 				</section>
 
 				<section data-background-color="#2E4053">
@@ -588,31 +649,7 @@ Content-type: text/html
 							Avoid congestion with flow control. 
 						</div>
 					</section>
-				</section>
 
-				<section data-background-color="#633974">
-					<section>
-						<h3>HTTP Compression</h3>
-					</section>
-
-					<section>
-						<div>
-							Compression helps reduce bandwidth usage and transfer size/speed. 
-							<br/>
-							HTTP compression is enabled on server side and client should support it.<br/>
-						</div>
-					</section>
-
-					<section>
-						<div>
-							Request-Header : Accept-Encoding: gzip, deflate <br/>
-							Response-Header: Content-Encoding: gzip, deflate <br />
-							Other compression types: ie brotli, protobuf is available.
-						</div>
-					</section>
-				</section>
-
-				<section>
 					<section>
 						<h3>SSL/TLS Handshake</h3>
 					</section>
@@ -632,56 +669,34 @@ Content-type: text/html
 							</ul>
 						</div>
 					</section>
-
 				</section>
 
 				<section data-background-color="#0E6655">
 					<section>
-						<h3>HTTP Caching</h3>
+						<h3>State</h3>
 					</section>
 
 					<section>
-						<strong>Time based caching</strong>
 						<div>
-							<code>
-								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
-								Expires: Sat 22 Jan 2029 12:00:00 GMT<br />
-								Cache-Control: max-age=315360000<br />
-							</code>
+							By default HTTP is stateless, session ,cookies and some browser support enables storing state.
 						</div>
 					</section>
 
 					<section>
-						<strong>Content based caching</strong>
-						<div>
-							<code>
-								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
-								Etag: "8e5bcd-59f-segedbht"<br /> 
-							</code>
-						</div>
+						<h3>Cookies</h3>
+						<div>Cookies are small piece of data (in the shape of key value pairs) stored on the browser and sent to server via request headers per each request. In HTTP/1.1 Headers are not compressed so keeping cookies small is important.</div>
 					</section>
 
 					<section>
-						<strong>HTTP Request and Response Caching</strong>
+						<h3>Web/HTTP Session</h3>
 						<div>
-							Request:<br />
-							<code>
-								if-modified-since: Wed, 01 Jan 2017 17:33:12 GMT <br />
-							</code>
-
-							Response: <br />
-							<code>
-								HTTP/1.1 304 Not Modified <br />
-								Expires: Sat, 11 April 2018 17:33.12
-							</code>
+							Web/HTTP session is created in server and identified by a unique key (session id). Session is a data storage (hash table/dictionary) that contains data in key/value pair. 
 						</div>
 					</section>
 
-					<section>
-						<strong>Cache Modes</strong>
+					<section> 
 						<div>
-							Private: within a browser URLs, browsing history and web content. They are generally small and specific to a user. <br />
-							Public: Can be cached in down streams such as proxies, CDN etc. 
+							User session contains information about user across multiple HTTP requests.Session ID can be stored in cookies or URL.
 						</div>
 					</section>
 				</section>
@@ -758,36 +773,6 @@ Content-type: text/html
 						<h3>DNS lookup</h3>
 						<div>
 							Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
-						</div>
-					</section>
-				</section>
-
-				<section data-background-color="#0E6655">
-					<section>
-						<h3>Session and Cookies</h3>
-					</section>
-
-					<section>
-						<div>
-							By default HTTP is stateless, session ,cookies and some browser support enables storing state.
-						</div>
-					</section>
-
-					<section>
-						<h3>Cookies</h3>
-						<div>Cookies are small piece of data (in the shape of key value pairs) stored on the browser and sent to server via request headers per each request. In HTTP/1.1 Headers are not compressed so keeping cookies small is important.</div>
-					</section>
-
-					<section>
-						<h3>Web/HTTP Session</h3>
-						<div>
-							Web/HTTP session is created in server and identified by a unique key (session id). Session is a data storage (hash table/dictionary) that contains data in key/value pair. 
-						</div>
-					</section>
-
-					<section> 
-						<div>
-							User session contains information about user across multiple HTTP requests.Session ID can be stored in cookies or URL.
 						</div>
 					</section>
 				</section>
@@ -1119,17 +1104,19 @@ Content-type: text/html
 					</section>
 
 					<section>
-						Web applications does not require deployment for each client machine.<br />
-						Does not require version check in client machine.<br />
-						Updates are easier.<br />
-						Bug fixes are easier.<br />
-						No administrator rights checking.<br />
-						Can access from anywhere.<br />
-						Platform independent.<br />
-						Support and maintenance are easier.<br />
-						Adaptability in mobile applications.<br />
-						Development is easy <br />
-						Large community support <br />
+						<div>
+							Web applications does not require deployment for each client machine.<br />
+							Does not require version check in client machine.<br />
+							Updates are easier.<br />
+							Bug fixes are easier.<br />
+							No administrator rights checking.<br />
+							Can access from anywhere.<br />
+							Platform independent.<br />
+							Support and maintenance are easier.<br />
+							Adaptability in mobile applications.<br />
+							Development is easy <br />
+							Large community support <br />
+						</div>
 					</section>
 
 					<section>
