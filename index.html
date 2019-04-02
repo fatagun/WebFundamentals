@@ -107,6 +107,13 @@
 					</section>
 
 					<section>
+						<h3>HTTP/1.1</h3>
+						<div>
+							<img src="images/persistentconnections.png">
+						</div>
+					</section>
+
+					<section>
 						<h3>HTTP/2.0 : Improving Transport Performance</h3>
 						<p>
 							It was 2015 when HTTP/2 <a href="https://tools.ietf.org/html/rfc7540">released</a> with several enhancements to prior versions, mostly targeting performance and common HTTP/1.1 problems.  
@@ -185,10 +192,12 @@
 						<h3>Verbs</h3>
 						<div>HTTP verbs are used to take an action on specific resource(s).</div>
 					</section>
+
 					<section>
 						<h3>GET</h3>
 						<div>Fetches a resource.</div>
 					</section>
+
 					<section>
 						<h3>POST</h3>
 						<div>Creates a new resource. POST has a payload that specifies the data required to create the resource.</div>
@@ -211,19 +220,20 @@
 						<h3>PUT</h3>
 						<div>Updates an existing resource. The payload may contain the data to be updated.</div>
 					</section>
+
 					<section>
 						<h3>DELETE</h3>
-						<div>Deletes a resource</div>
+						<div>Deletes a resource.</div>
 					</section>
 
 					<section>
 						<h3>HEAD</h3>
-						<div>Lightweight GET.</div>
+						<div>Similar to GET,response does not have a body.</div>
 					</section>
 
 					<section>
 						<h3>PATCH</h3>
-						<div>Partial update. </div>
+						<div>Partial update of a resource.</div>
 					</section>
 				</section>
 
@@ -337,17 +347,34 @@
 				</section>
 
 				<section>
-					<h3>Content Types</h3>
+					<section>
+						<h3>Content/Mime Types</h3>
+						<div>
+							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document, file, or assortment of bytes.
+							<ul>
+								<li>JSON</li>
+								<li>XML</li>
+								<li>HTML</li>
+								<li>Images</li>
+								<li>Video</li>
+								<li>and many more.</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<div>
+							Structure of a mime type:<br />
+							`type/subtype` <br />
+							Example: application/json, text/html, text/csv, text/plain, image/png, image/jpg
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h3>Content Negotiation</h3>
 					<div>
-						Various content types are supported by HTTP
-						<ul>
-							<li>JSON</li>
-							<li>XML</li>
-							<li>HTML</li>
-							<li>Images</li>
-							<li>Video</li>
-							<li>and many more.</li>
-						</ul>
+						Content negotiation refers to mechanisms defined as a part of HTTP that make it possible to serve different versions of a document (or more generally, representations of a resource) at the same URI, so that user agents can specify which version fits their capabilities the best.
 					</div>
 				</section>
 
@@ -385,6 +412,10 @@
 					</section> 
 
 					<section>
+						<img src="images/httpconnections.png" />
+					</section>
+
+					<section>
 						<img src="images/3wayhandshake.PNG" />
 					</section>
 
@@ -404,7 +435,13 @@
 
 					<section>
 						<div>
-							 Slow start is used to detect the current state of the network. If there is a congestion in the network, new connections shouldn't make it worse. Slow start allows the sender to send additional unacknowledged packet for every acknowledged packet it receives.  This means that after initial connection, and one acknowledged packets, sender sends two, after getting acknowledgement for two packets, sender can send four and so on. So it is power of two. This geometric growth soon reaches an upper limit defined in the protocol at which point the connection will enter what is called the <strong>congestion avoidance phase</strong>.
+							 Slow start is used to detect the current state of the network. If there is a congestion in the network, new connections shouldn't make it worse. Slow start allows the sender to send additional unacknowledged packet for every acknowledged packet it receives.  This means that after initial connection, and one acknowledged packet, sender sends two, after getting acknowledgement for two packets, sender can send four and so on. 
+						</div>
+					</section>
+
+					<section>
+						<div>
+							 This geometric growth soon reaches an upper limit defined in the protocol at which point the connection will enter what is called the <strong>congestion avoidance phase</strong>.
 						</div>
 					</section>
 
@@ -437,10 +474,12 @@
 				<section>
 					<h3>HTTP Compression</h3>
 					<div>
-						Compression helps reduce bandwidth usage and transfer size/speed. <br/>
+						Compression helps reduce bandwidth usage and transfer size/speed. 
+						<br/>
 						HTTP compression is enabled on server side and client should support it.<br/>
 						Request-Header : Accept-Encoding: gzip, deflate <br/>
-						Response-Header: Content-Encoding: gzip, deflate
+						Response-Header: Content-Encoding: gzip, deflate <br />
+						Other compression types: ie brotli, protobuf is available.
 					</div>
 				</section>
 
@@ -448,6 +487,13 @@
 					<section>
 						<h3>SSL/TLS Handshake</h3>
 					</section>
+
+					<section>
+						<div>
+							<img src="images/sslhandshake.png" />
+						</div>
+					</section>
+
 					<section>
 						<div>
 							<ul>
@@ -459,9 +505,7 @@
 							</ul>
 						</div>
 					</section>
-					<section>
-						<h3>TODO : SSL HANDSHAKE IMAGE</h3>
-					</section>
+
 				</section>
 
 				<section>
@@ -470,14 +514,27 @@
 					</section>
 
 					<section>
+						<h3>Latency</h3>
 						<div>
-							<strong>Latency:</strong> How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major performance bottleneck for HTTP which uses many round trips to the server.
+							<img src="images/latency.png" />
+						</div>
+					</section>
+
+					<section>
+						<div>How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server.
+						</div>
+					</section>
+
+					<section>
+						<h3>Bandwidth</h3>
+						<div>
+							<img src="images/bandwidth.png" />
 						</div>
 					</section>
 
 					<section>
 						<div>
-							<strong>Bandwidth:</strong> Connection between two locations, can handle only so much data at a time before it is saturated. Bandwidth can be bottleneck depending on the amount of data and the capacity of the connection.
+							Connection between two locations, can handle only so much data at a time before it is saturated. Bandwidth can be bottleneck depending on the amount of data and the capacity of the connection.
 						</div>
 					</section>
 
@@ -637,9 +694,29 @@
 
 						<div>
 							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
-						</div>
-						<div>
+						 	<br />
 							Establishing a connection requires 3 way handshake.
+						</div>
+					</section>
+
+					<section>
+						<h3>Lack of prioritization:</h3>
+						<div>
+							Priority is decided by browser. Not be developer or the application. There is no way to specify the order or responses. Browsers need to decide how to best use the connections and the order of resources.
+						</div>
+					</section>
+
+					<section>
+						<h3>Verbose Headers</h3>
+						<div>
+							There is no header compression. Headers, cookies send to the server for every request which is inefficient especially for very high volume sites.
+						</div>
+					</section>
+
+					<section>
+						<h3>Head of line blocking</h3>
+						<div>
+							Once the connection is created, it is dedicated for specific request, until the response comes back, it cannot be used. ie: If you need to get 30 resources from host, you can get 6 at a time. Once you request 6 resources, the others must wait for these 6 requests to finish. So, HTTP/1.1 works in a serial way (serial request and response). This is called Head of line blocking.
 						</div>
 					</section>
 				</section>
@@ -693,7 +770,7 @@
 
 				<section>
 					<section>
-						<h3>Performance testing</h3>
+						<h3>Performance evaluation</h3>
 					</section>
 					<section>
 						<div>
