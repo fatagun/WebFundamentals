@@ -26,7 +26,7 @@
 			strong
 			{
 				color: red;
-			}
+			} 
 		</style>
 	</head>
 	<body>
@@ -35,6 +35,15 @@
 				<section>
 					<h3>Web Fundamentals for</h3>
 					<h3>IT executives</h3>
+				</section>
+
+				<section>
+					<h3>TODO</h3> 
+					<div>
+						ASP.net core, Kestrel, Middleware, Request pipeline.<br />
+						Mimari Bilesenler ve urunler <br />
+						
+					</div>
 				</section>
 
 				<section>
@@ -73,9 +82,10 @@
 					</section>
 
 					<section>
-						<div>Initial specs of HTTP was very simple. </div>
-
-						<img src="images/originalhttp.png" />
+						<div>
+							Initial specs of HTTP was very simple. <br />
+							<img src="images/originalhttp.png" />
+						</div>
 					</section>
 
 					<section>
@@ -91,7 +101,7 @@
 					<section>
 						<h3>HTTP 0.9</h3>
 						<div>
-							<img src="images/http09.PNG" />
+							<img src="images/http09.PNG" style="text-align: center;" />
 						</div>
 					</section>
 
@@ -201,7 +211,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-transition="slide-in fade-out">
 					<section>
 						<h3>HTTP vs WWW</h3>
 					</section>
@@ -345,7 +355,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-transition="fade-in slide-out">
 					<section>
 						<h3>Request/Response format</h3>
 						<div>
@@ -407,7 +417,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-transition="zoom">
 					<section>
 						<h3>Content/Mime Types</h3>
 					</section>
@@ -569,6 +579,11 @@
 							Compression helps reduce bandwidth usage and transfer size/speed. 
 							<br/>
 							HTTP compression is enabled on server side and client should support it.<br/>
+						</div>
+					</section>
+
+					<section>
+						<div>
 							Request-Header : Accept-Encoding: gzip, deflate <br/>
 							Response-Header: Content-Encoding: gzip, deflate <br />
 							Other compression types: ie brotli, protobuf is available.
