@@ -42,7 +42,8 @@
 					<div>
 						ASP.net core, Kestrel, Middleware, Request pipeline.<br />
 						Mimari Bilesenler ve urunler <br />
-						
+						Web Application Servers, HTTP servers <br />
+
 					</div>
 				</section>
 
@@ -223,7 +224,7 @@
 					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#01BD9B" data-background-transition="zoom">
+				<section data-transition="slide" data-background="#01BD9B" data-background-transition="fade">
 					<section>
 						<h3>Verbs</h3>
 					</section>
@@ -276,7 +277,7 @@
 					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#03B3D6" data-background-transition="zoom">
+				<section data-transition="slide" data-background="#03B3D6" data-background-transition="convex">
 					<section>
 						<h3>HTTP Status Codes</h3>
 					</section>
@@ -514,20 +515,56 @@
 					</section>
 
 					<section>
-						<img src="images/3wayhandshake.PNG" />
+						<div>
+							Prior to HTTP/1.1 for every request there was a connection setup and tear down (<strong>Short lived Connections</strong>). With HTTP/1.1 persistent connections and connection pipelining was developed. 
+						</div>
 					</section>
 
 					<section>
-						<img src="images/tcppackages.PNG" />
+						<div>
+							The <strong>TCP handshake</strong> itself is time-consuming, but a TCP connection adapts to its load, becoming more efficient with more sustained (or warm) connections. Short-lived connections do not make use of this efficiency feature of TCP, and performance degrades from optimum by persisting to transmit over a new, cold connection.
+						</div>
 					</section>
 
 					<section>
-						<img src="images/reliability_of_tcp.PNG" />
+						<div>
+							<img src="images/3wayhandshake.PNG" />
+						</div>
+					</section>
+
+					<section>
+						<div>
+							The <strong>persistent-connection (keep-alive)</strong> model keeps connections opened between successive requests, reducing the time needed to open new connections and thus saving resources. HTTP pipelining goes one step further and sends multiple requests without waiting for a response.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							A <strong>persistent connection</strong> is a one which remains open for a period, and can be reused for several requests, saving the the need for a new TCP handshake, and utilizing TCP's performance. This connection will not stay open forever: idle connections are closed after some time.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							One drawback of persistent connections is that, they consume resources on servers. They must be closed after a period of time.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<img src="images/connections.png" />
+						</div>
 					</section>
 
 					<section>
 						<div>
 							A packet or <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> packet in specific, is series of bytes, encapsulated in a format or data structure called <a href="https://en.wikipedia.org/wiki/Frame_(networking)">frame</a>. Frames contain several information such as how long the packet is, how it should be delivered, where it is coming from and going to. <strong>A packet's payload can effectively contain 1460 bytes at most</strong>.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<img src="images/tcppackages.PNG" />
 						</div>
 					</section>
 
@@ -558,6 +595,12 @@
 					<section>
 						<div>
 							Browsers commonly opens up six connections to a particular host. Congestion window needs to occur six times in parallel. TCP will make sure that those connections play nicely together, but it does not guarantee that their performance will be optimal.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<img src="images/reliability_of_tcp.PNG" />
 						</div>
 					</section>
 
