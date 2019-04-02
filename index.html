@@ -854,10 +854,8 @@
 						<h3>Domain Sharding</h3>
 						<div> 
 							<ul>
-								<
 								<li>Requests more resources.</li>
 								<li>Requires more DNS lookups.</li>
-								<li></li>
 							</ul>
 						</div>
 					</section>
@@ -888,7 +886,7 @@
 
 				</section>
 
-				<section>
+				<section data-background-color="#424949" data-transition="slide-in fade-out">
 					<section>
 						<h3>Problems with HTTP/1.1</h3>
 					</section>
@@ -937,7 +935,48 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-background-color="#186A3B" data-transition="slide-in fade-out">
+					<section>
+						<h3>The new kid on the block.</h3>
+					</section>
+
+					<section>
+						<h3>HTTP/2.0</h3>
+
+						<div>
+							<a href="https://http2.github.io/http2-spec/" target="firat">Specs</a>
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<h3>Goals of HTTP/2.0</h3>
+							<ul>
+							 	<li>Minimize impact of Latency</li>
+							 	<li>Avoid head of line blocking</li>
+							 	<li>Use single connection per host</li>
+							 	<li>Backwards compatible</li>
+							 	<li>Fall back to HTTP/1.1</li>
+							 	<li>HTTP/1.1 methods, status, headers still work.</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<h3>Major Features</h3>
+							<ul>
+								<li>Binary framing</li>
+								<li>Multiple requests over Single TCP connection.</li>
+								<li>Header Compression</li>
+								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack Compression</a></li>
+								<li>No more 3way handshake or slow start.</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#2E4053" data-transition="fade-in slide-out">
 					<section>
 						<h3>HTTP Security</h3>
 					</section>
@@ -968,7 +1007,7 @@
 					<section>
 						<h3>HSTS : Strict Transport Security</h3>
 						<div>
-							HSTS is server directire that informs user how to handle connection at the beginning through HTTPS. There is a very small attack window in the initial connection. Browsers save this information internally for a defined period of time. <br />
+							HSTS tell browser 2 things: <br />
 							1. Load all content from your domain over HTTPS. <br />
 							2. Refuses to connect in case of certificate errors and warnings
 						</div>
@@ -1003,7 +1042,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-background-color="#21618C" data-transition="slide-in convex">
 					<section>
 						<h3>Common Problems with Web Applications</h3>
 					</section>
@@ -1071,7 +1110,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-background-color="#0E6655">
 					<section>
 						<h3>Performance evaluation</h3>
 					</section>
