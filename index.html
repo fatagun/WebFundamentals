@@ -27,7 +27,12 @@
  				border:none; 
  				box-shadow: none; 
  				background: #fff; 
- 			};
+ 			}
+
+ 			.reveal pre code
+ 			{
+ 				max-height: 600px;
+ 			}
 		</style>
 	</head>
 	<body>
@@ -796,6 +801,7 @@ Content-type: text/html
 								<li>Domain sharding</li>
 								<li>Bundling and minification</li>
 								<li>DNS prefetch/resource hints</li>
+								<li>Preconnect/Prerender</li>
 								<li>Image Striping</li>
 							</ul>
 						</div>
@@ -845,6 +851,13 @@ Content-type: text/html
 							Typically DNS is queried once the browser completes rendering HTML.<br />
 
 							DNS prefetch and resourse hints tell the browser to resolve DNS to HTML rendering. <br />
+						</div>
+					</section>
+
+					<section>
+						<h3>Preconnect / Prerender</h3>
+						<div>
+							These techniques allow browsers to connect and begin rendering as early as possible.
 						</div>
 					</section>
 
@@ -962,8 +975,7 @@ Content-type: text/html
 							<ul>
 								<li>Binary framing</li>
 								<li>Multiple requests over Single TCP connection.</li>
-								<li>Header Compression</li>
-								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack Compression</a></li>
+								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack</a>/Header Compression</li>
 								<li>No more 3way handshake or slow start.</li>
 							</ul>
 						</div>
@@ -1160,6 +1172,90 @@ Content-type: text/html
 
 					<section>
 						<img src="images/browserlayers.png" />
+					</section>
+
+					<section>
+						<h3>Critical Rendering Path</h3>
+					</section>
+
+					<section>
+						<div>
+							<ol>
+								<li>Constructing the DOM Tree</li>
+								<li>Constructing the CSSOM Tree</li>
+								<li>Running JavaScript</li>
+								<li>Creating the Render Tree</li>
+								<li>Generating the Layout</li>
+								<li>Painting</li>
+							</ol>
+						</div>
+					</section>
+
+					<section>
+						<img src="images/crp.png" />
+					</section>
+
+					<section>
+						<pre>
+							<code class="hljs markdown">&lt;html&gt;
+&lt;head&gt;
+  <title>Understanding the Critical Rendering Path</title>
+  &lt;style&gt;
+    body { font-size: 18px; }
+
+	header { color: plum; }
+	h1 { font-size: 28px; }
+
+	main { color: firebrick; }
+	h2 { font-size: 20px; }
+
+	footer { display: none; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  <header>
+      <h1>Understanding the Critical Rendering Path</h1>
+  </header>
+  <main>
+      <h2>Introduction</h2>
+      <p>Lorem ipsum dolor sit amet</p>
+  </main>
+  <footer>
+      <small>Copyright 2019</small>
+  </footer>
+&lt;/body&gt;
+&lt;/html&gt;</code>
+						</pre>
+					</section>
+
+					<section>
+						<img src="images/CSSOM.png" />
+					</section>
+
+					<section>
+						<img src="images/timeline.png" />
+					</section>
+
+					<section>
+						<div>
+							HTML is forgiving and a page does not have to be loaded for content to start appearing unless something blocks rendering. 
+						</div>
+					</section>
+
+					<section>
+						<div>
+							DOM (Document object model) is the object representation of the page. <br />
+							CSSOM (CSS Object Model) is the object representation of the styles associated with DOM. <br />
+							CSS is render blocking resource, both blocks the page rendering and javascript execution. <br />
+						</div>
+					</section>
+
+					<section>
+						<div>
+							JavaScript is parser blocking resource, which means as parsing of HTML is blocked by JavaScript. <br />
+							When the parser reaches a Script tag, it stops, fetches the JavaScript and runs it. <br />
+							It is usually a good practice to fetch JavaScript Asynchronously.
+						</div>
 					</section>
 				</section>
 
