@@ -43,13 +43,22 @@
 				</section>
 
 				<section>
-					<ul>
-						<li>HTTP Overview</li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+					<h3>Content</h3>
+					<div style="font-size: 24px;">
+						HTTP Overview <br />
+						Basic HTTP Concepts <br />
+						HTTP Connections<br />
+						State<br />
+						Other HTTP Concepts<br />
+						Problems with HTTP/1.1<br />
+						HTTP/2.0<br />
+						HTTP Security<br />
+						Performance Optimization<br />
+						How browser works <br />
+						Application Servers and OS <br />
+						Common Web App Problems <br />
+						Web apps vs desktop apps <br />
+					</div>
 				</section>
 
 				<section>
@@ -144,7 +153,7 @@
 						<h3>Request/Response Model</h3>
 						<div>
 							Client communicates with the server using messages (request and response message).<br />
-							Also called a HTTP transaction.
+							Request/Response pair is also called an HTTP transaction.
 						</div>
 
 						<img src="images/request_response.png" />
@@ -159,17 +168,9 @@
 					
 					<section>
 						<h3>Verbs</h3>
-						<div>HTTP verbs are used to take an action on specific resource(s).</div>
-					</section>
-
-					<section>
-						<h3>GET</h3>
-						<div>Fetches a resource.</div>
-					</section>
-
-					<section>
-						<h3>POST</h3>
-						<div>Creates a new resource. POST has a payload that specifies the data required to create the resource.</div>
+						<div>HTTP verbs are used to take an action on specific resource(s).<br />
+						GET, POST, PUT, DELETE, PATCH, HEAD are some of them. 
+						</div>
 					</section>
 
 					<section>
@@ -186,26 +187,6 @@
 					</section>
 
 					<section>
-						<h3>PUT</h3>
-						<div>Updates an existing resource. The payload may contain the data to be updated.</div>
-					</section>
-
-					<section>
-						<h3>DELETE</h3>
-						<div>Deletes a resource.</div>
-					</section>
-
-					<section>
-						<h3>HEAD</h3>
-						<div>Similar to GET,response does not have a body.</div>
-					</section>
-
-					<section>
-						<h3>PATCH</h3>
-						<div>Partial update of a resource.</div>
-					</section>
-
-					<section>
 						<h3>HTTP Status Codes</h3>
 
 						<ul>
@@ -218,66 +199,22 @@
 					</section>
 
 					<section>
-						<h4>1xx</h4>
 						<div>
 							<ul>
 								<li>100 : Continue</li>
-							</ul>
-						</div>
-					</section>
-
-					<section>
-						<h4>2xx</h4>
-						<div>
-							<ul>
 								<li>200 : OK</li>
 								<li>201 : Created</li>
-								<li>202 : Accepted</li>
-							</ul>
-						</div>
-					</section>
-
-					<section>
-						<h4>3xx</h4>
-						<div>
-							<ul>
 								<li>301 : Moved Permanently</li>
 								<li>304 : Not Modified</li>
 								<li>307 : Temporary Redirect</li>
-							</ul>
-						</div>
-					</section>
-
-					<section>
-						<h4>4xx</h4>
-
-						<div>
-							<ul>
 								<li>400 : Bad Request</li>
 								<li>401 : Unauthorised</li>
 								<li>403 : Forbidden</li>
 								<li>404 : Not found</li>
-								<li>405 : Method not allowed</li>
-							</ul>
-						</div>
-					</section>
-
-					<section>
-						<h4>5xx</h4>
-
-						<div>
-							<ul>
 								<li>500 : Internal server error</li>
-								<li>501 : Not implemented</li>
-								<li>502 : Bad Gateway</li>
 								<li>503 : Service unavailable</li>
-								<li>504 : Gateway timeout</li>
 							</ul>
 						</div>
-					</section>
-
-					<section>
-						More at: <a href="https://httpstatuses.com/" style="color: blue;" target="firat">Http statuses</a>
 					</section>
 
 					<section>
@@ -288,16 +225,14 @@
 					</section>
 
 					<section>
-						<h3>Request format</h3>
+						<h3>Request Format</h3>
+
 						<div>
 							[Method] [URL] [Version] <br />
 							[Headers] <br />
 							[Body]
 						</div>
-					</section>
 
-					<section>
-						<h3>Request Format</h3>
 						<pre><code class="hljs">
 GET /articles/http-overview HTTP/1.1
 Host: www.firat.com
@@ -309,19 +244,13 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 					</section>
 
 					<section>
-						<h3>Response format</h3>
+						<h3>Response Format</h3>
 						<div>
 							[Version] [Status] [Reason] <br />
 							[Headers] <br />
 							[Body]
 						</div>
-					</section>
-
-					<section>
-						<div>
-							<pre>
-								<code class="hljs">
-HTTP/1.1 200 OK
+						<pre><code class="hljs">HTTP/1.1 200 OK
 Date: Mon, 01 Apr 2019 20:54:26 GMT
 Server: Apache/1.3.6 (Unix)
 Last-Modified: Mon, 01 Apr 2019 14:06:11 GMT
@@ -330,10 +259,8 @@ Accept-Ranges: bytes
 Content-length: 327
 Connection: close
 Content-type: text/html
-.... Content here ....
-								</code>
-							</pre>
-						</div>
+.... Content here ....</code></pre>
+						
 					</section>
 
 					<section>
@@ -387,14 +314,6 @@ Content-type: text/html
 
 					<section>
 						<img src="images/httpresponseheaders.png" />
-					</section>
-
-					<section>
-						<img src="images/requestheaders.PNG" />
-					</section>
-
-					<section>
-						<img src="images/responseheaders.PNG" />
 					</section>
 
 					<section>
@@ -507,7 +426,7 @@ Content-type: text/html
 
 					<section>
 						<div>
-							A <strong>persistent connection</strong> is a one which remains open for a period, and can be reused for several requests, saving the the need for a new TCP handshake, and utilizing TCP's performance. This connection will not stay open forever: idle connections are closed after some time.
+							A <strong>persistent connection</strong> remains open for a period, and can be reused for several requests, saving the the need for a new TCP handshake, and utilizing TCP's performance. This connection will not stay open forever: idle connections are closed after some time.
 						</div>
 					</section>
 
@@ -555,10 +474,6 @@ Content-type: text/html
 						</div>
 					</section>
 
-					<section>
-						<img src="images/reliability_of_tcp.PNG" />
-					</section>
-
 					<section> 
 						<div>
 							TCP Provides reliability and ordering. <br />
@@ -571,7 +486,7 @@ Content-type: text/html
 					</section>
 
 					<section>
-						<img src="images/sslhandshake.png" />
+						<img src="images/ssl.gif" />
 					</section>
 
 					<section>
@@ -624,21 +539,17 @@ Content-type: text/html
 
 					<section>
 						<h3>Latency</h3>
-						<img src="images/latency.png" />
-					</section>
-
-					<section>
 						<div>
 							How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server. It is limited by the speed of light.
 						</div>
 					</section>
 
 					<section>
-						<h3>Bandwidth</h3>
-						<img src="images/bandwidth.png" />
+						<img src="images/latency.png" />
 					</section>
 
 					<section>
+						<h3>Bandwidth</h3>
 						<div>
 							Connection between two locations, can handle only so much data at a time before it is saturated. Bandwidth can be bottleneck depending on the amount of data and the capacity of the connection.
 						</div>
@@ -706,7 +617,7 @@ Content-type: text/html
 					<section>
 						<div>
 							<ul>
-							 	<li>It wasn’t designed for todays web pages, ie: 100+ HTTP requests, and 2MB+ page size.</li>
+							 	<li>It wasn’t designed for todays apps</li>
 							 	<li>Requires multiple connections</li>
 							 	<li>Lack of prioritization</li>
 							 	<li>Verbose headers</li>
@@ -720,8 +631,6 @@ Content-type: text/html
 
 						<div>
 							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
-						 	<br />
-							Establishing a connection requires 3 way handshake.
 						</div>
 					</section>
 
@@ -749,14 +658,14 @@ Content-type: text/html
 
 				<section data-background-color="#186A3B">
 					<section>
-						<h3>The new kid on the block.</h3>
-					</section>
-
-					<section>
 						<h3>HTTP/2.0</h3>
-
 						<div>
 							<a href="https://http2.github.io/http2-spec/" target="firat">Specs</a>
+
+							<br />
+							<a href="https://imagekit.io/demo/http2-vs-http1">
+								Performance difference
+							</a>
 						</div>
 					</section>
 
@@ -778,7 +687,7 @@ Content-type: text/html
 							<h3>Major Features</h3>
 							<ul>
 								<li>Binary framing</li>
-								<li>Multiple requests over Single TCP connection.</li>
+								<li>Multiple requests over Single connection.</li>
 								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack</a>/Header Compression</li>
 								<li>No more 3way handshake or slow start.</li>
 							</ul>
@@ -950,18 +859,20 @@ Content-type: text/html
 						<div>
 							<ul>
 							 	<li>Endurance Test - Measures if there are any anomalies during tests.</li>
-							 	<li>Capacity Planning Test - Made to find out whether the system performs as expected based on capacity planning and provisioning.</li>
+							 	<li>Capacity Test - Made to find out whether the system performs as expected based on capacity planning and provisioning.</li>
 							 	<li>Degradation Test - Made to find out when the system performance degrades.</li>
 							</ul>
 						</div>
 					</section>
 				</section>
 
-				
-
 				<section data-background-color="#E74C3C">
 					<section>
 						<h3>How browsers work</h3>
+					</section>
+
+					<section>
+						<img src="images/browserlayers.png" />
 					</section>
 
 					<section>
@@ -1014,14 +925,7 @@ Content-type: text/html
 					</section>
 
 					<section>
-						<img src="images/browserlayers.png" />
-					</section>
-
-					<section>
 						<h3>Critical Rendering Path</h3>
-					</section>
-
-					<section>
 						<div>
 							<ol>
 								<li>Constructing the DOM Tree</li>
@@ -1110,7 +1014,7 @@ Content-type: text/html
 					<section>
 						<div>
 							There are multiple models such as Threading model, Event loop and hybrids. <br />
-							Traditional model is with thread and tasks. With NodeJS event loop was developed that ran single threaded with non blocking IO. Mostly used for IO bound operations. 
+							Traditional model is with thread and tasks. With NodeJS event loop was developed that ran single threaded with non blocking IO. NodeJs is good for IO bound applications. 
 						</div>
 					</section>
 
@@ -1192,8 +1096,9 @@ Content-type: text/html
 
 					<section>
 						<div>
-							<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>. <br />
-							Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</div>
+							<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>.
+							Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.
+						</div>
 					</section>
 				</section>
 
