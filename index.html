@@ -43,6 +43,16 @@
 				</section>
 
 				<section>
+					<ul>
+						<li>HTTP Overview</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+
+				<section>
 					<section>
 						<h3>Overview</h3>
 					</section>
@@ -132,36 +142,23 @@
 
 					<section>
 						<h3>Request/Response Model</h3>
-					</section>
+						<div>
+							Client communicates with the server using messages (request and response message).<br />
+							Also called a HTTP transaction.
+						</div>
 
-					<section>
 						<img src="images/request_response.png" />
 					</section>
 
 					<section>
-						<h3>Request/Response Model</h3>
-						<div>
-							Client communicates with the server using messages (request and response message).<br />
-							Every request gets a response. Client sends a request and server returns a response. <br />
-							This is also called a HTTP transaction.
-						</div>
-					</section>
-
-					<section>
 						<h3>URLs</h3>
-					</section>
-
-					<section>
 						<div>Uniform Resource Locators (URLs) are used in the request message for communication.</div>
 
 						<img src="images/http1-url-structure.png" />
 					</section>
-
-					<section>
-						<h3>Verbs</h3>
-					</section>
 					
 					<section>
+						<h3>Verbs</h3>
 						<div>HTTP verbs are used to take an action on specific resource(s).</div>
 					</section>
 
@@ -210,9 +207,7 @@
 
 					<section>
 						<h3>HTTP Status Codes</h3>
-					</section>
 
-					<section>
 						<ul>
 							<li>1xx : Informational</li>
 							<li>2xx : Successful</li>
@@ -347,9 +342,7 @@ Content-type: text/html
 
 					<section>
 						<h3>Content/Mime Types</h3>
-					</section>
 
-					<section>
 						<div>
 							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document.
 						</div>
@@ -365,13 +358,11 @@ Content-type: text/html
 								<li>and many more.</li>
 							</ul>
 						</div>
-					</section> 
-
-					<section>
-						<h3>Content Negotiation</h3>
 					</section>
 
 					<section>
+						<h3>Content Negotiation</h3>
+
 						<div>
 							Content negotiation makes it possible to serve different representation of a document from the same URI, so that user agents can specify which version fits their capabilities the best.
 						</div>
@@ -383,7 +374,6 @@ Content-type: text/html
 
 					<section>
 						<div>
-							There are 4 types of HTTP headers:<br/>
 							General Headers: date, connection etc. Used by both clients and server.<br/>
 							Request Headers: Used by client to indicate client configuration.<br/>
 							Response Headers: used by servers to describe server configuration and URL's information.<br/>
@@ -405,13 +395,11 @@ Content-type: text/html
 
 					<section>
 						<img src="images/responseheaders.PNG" />
-					</section> 
-
-					<section>
-						<h3>HTTP Compression</h3>
 					</section>
 
 					<section>
+						<h3>HTTP Compression</h3>
+
 						<div>
 							Compression helps reduce bandwidth usage and transfer size/speed. 
 							<br/>
@@ -502,17 +490,14 @@ Content-type: text/html
 
 					<section>
 						<div>
-							The <strong>TCP handshake</strong> itself is time-consuming.
+							The <strong>TCP handshake</strong> itself is time consuming.
 						</div>
-					</section>
-
-					<section>
 						<img src="images/3wayhandshake.PNG" />
 					</section>
 
 					<section>
 						<div>
-							The <strong>persistent-connection (keep-alive)</strong> model keeps connections opened between successive requests, reducing the time needed to open new connections and thus saving resources. HTTP pipelining goes one step further and sends multiple requests without waiting for a response.
+							The <strong>persistent-connection (keep-alive)</strong> model keeps connections open between successive requests, reducing the time needed to open new connections and thus saving resources. HTTP pipelining goes one step further and sends multiple requests without waiting for a response.
 						</div>
 					</section>
 
@@ -560,7 +545,7 @@ Content-type: text/html
 
 					<section>
 						<div>
-							It usually takes a few round trips to get the optimal congestion window size which are very precious to determine the performance. Usually operating systems start with 4 packets which makes 5840 bytes for initial congestion window size which sender needs to wait for acknowledgements.
+							It usually takes a few round trips to get the optimal congestion window size which are very precious to determine the performance. Usually operating systems start with 4 packets which makes 5840 bytes for initial congestion window size.
 						</div>
 					</section>
 
@@ -634,7 +619,7 @@ Content-type: text/html
 
 				<section data-background-color="#34495E">
 					<section>
-						<h3>Major HTTP Concepts</h3>
+						<h3>Other HTTP Concepts</h3>
 					</section>
 
 					<section>
@@ -643,7 +628,8 @@ Content-type: text/html
 					</section>
 
 					<section>
-						<div>How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server. It is limited by the speed of light.
+						<div>
+							How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server. It is limited by the speed of light.
 						</div>
 					</section>
 
@@ -708,6 +694,160 @@ Content-type: text/html
 						<h3>DNS lookup</h3>
 						<div>
 							Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, this information can be cached.
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#424949">
+					<section>
+						<h3>Problems with HTTP/1.1</h3>
+					</section>
+
+					<section>
+						<div>
+							<ul>
+							 	<li>It wasn’t designed for todays web pages, ie: 100+ HTTP requests, and 2MB+ page size.</li>
+							 	<li>Requires multiple connections</li>
+							 	<li>Lack of prioritization</li>
+							 	<li>Verbose headers</li>
+							 	<li>Head of line blocking</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h3>Multiple Connections</h3>
+
+						<div>
+							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
+						 	<br />
+							Establishing a connection requires 3 way handshake.
+						</div>
+					</section>
+
+					<section>
+						<h3>Lack of prioritization:</h3>
+						<div>
+							Priority is decided by browser. Not be developer or the application. There is no way to specify the order or responses. Browsers need to decide how to best use the connections and the order of resources.
+						</div>
+					</section>
+
+					<section>
+						<h3>Verbose Headers</h3>
+						<div>
+							There is no header compression. Headers, cookies send to the server for every request which is inefficient especially for very high volume sites.
+						</div>
+					</section>
+
+					<section>
+						<h3>Head of line blocking</h3>
+						<div>
+							Once the connection is created, it is dedicated for specific request, until the response comes back, it cannot be used. ie: If you need to get 30 resources from host, you can get 6 at a time. Once you request 6 resources, the others must wait for these 6 requests to finish.
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#186A3B">
+					<section>
+						<h3>The new kid on the block.</h3>
+					</section>
+
+					<section>
+						<h3>HTTP/2.0</h3>
+
+						<div>
+							<a href="https://http2.github.io/http2-spec/" target="firat">Specs</a>
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<h3>Goals of HTTP/2.0</h3>
+							<ul>
+							 	<li>Minimize impact of Latency</li>
+							 	<li>Avoid head of line blocking</li>
+							 	<li>Use single connection per host</li>
+							 	<li>Backwards compatible</li>
+							 	<li>Fall back to HTTP/1.1</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<h3>Major Features</h3>
+							<ul>
+								<li>Binary framing</li>
+								<li>Multiple requests over Single TCP connection.</li>
+								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack</a>/Header Compression</li>
+								<li>No more 3way handshake or slow start.</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#2E4053">
+					<section>
+						<h3>HTTP Security</h3>
+					</section>
+
+					<section>
+						<h3>Redirect Validation</h3>
+						<div>
+							Unvalidated redirects and forwards can send users to attacker's site. <br />
+							HTTP redirects with 3xx (except 304 , not modified).Redirects to relative URIs can be allowed, as well as redirects to the same site.
+						</div>
+					</section>
+
+					<section>
+						<h3>CSP (Content Security Policy)</h3>
+						<div>
+							Code from https://mybank.com should only have access to https://mybank.com’s data, and https://evil.example.com should certainly never be allowed access. <br /> 
+							Content-Security-Policy (CSP) provides a safety net for injection attacks by specifying a whitelist from where various content in a webpage can be loaded from.
+						</div>
+					</section>
+
+					<section>
+						<h3>Upgrade insecure requests</h3>
+						<div>
+							Upgrades all requests triggered by a page from HTTP to HTTPS. If there is a none secure resource on a page, it will be upgraded to a secure version.
+						</div>
+					</section>
+
+					<section>
+						<h3>HSTS : Strict Transport Security</h3>
+						<div>
+							HSTS tell browser 2 things: <br />
+							1. Load all content from your domain over HTTPS. <br />
+							2. Refuses to connect in case of certificate errors and warnings
+						</div>
+					</section>
+
+					<section>
+						<h3>X-Frame Options</h3>
+						<div>
+							Tells the browser if `iframe, frame, embed or object` can be used in a page or not. If so how to use it. Avoid clickjackig attacks.
+						</div>
+					</section>
+
+					<section>
+						<h3>X-Download-Options</h3>
+						<div>
+							Disables to option to open a file directly on download.
+						</div>
+					</section>
+
+					<section>
+						<h3>X-XSS-Protection</h3>
+						<div>
+							If browser detects an XSS attack, it will modify the page to block the attack.
+						</div>
+					</section>
+
+					<section>
+						<h3>X-Content-Type-Options</h3>
+						<div>
+							Browser does not allow modification of Content/Mime type.
 						</div>
 					</section>
 				</section>
@@ -815,231 +955,9 @@ Content-type: text/html
 							</ul>
 						</div>
 					</section>
-
 				</section>
 
-				<section data-background-color="#424949">
-					<section>
-						<h3>Problems with HTTP/1.1</h3>
-					</section>
-
-					<section>
-						<div>
-							<ul>
-							 	<li>It wasn’t designed for todays web pages, ie: 100+ HTTP requests, and 2MB+ page size.</li>
-							 	<li>Requires multiple connections</li>
-							 	<li>Lack of prioritization</li>
-							 	<li>Verbose headers</li>
-							 	<li>Head of line blocking</li>
-							</ul>
-						</div>
-					</section>
-
-					<section>
-						<h3>Multiple Connections</h3>
-
-						<div>
-							When the app requires 50+ HTTP requests, there is a limit to the number of connections a browser can open per host, most browsers support 6 connections simultaneously.
-						 	<br />
-							Establishing a connection requires 3 way handshake.
-						</div>
-					</section>
-
-					<section>
-						<h3>Lack of prioritization:</h3>
-						<div>
-							Priority is decided by browser. Not be developer or the application. There is no way to specify the order or responses. Browsers need to decide how to best use the connections and the order of resources.
-						</div>
-					</section>
-
-					<section>
-						<h3>Verbose Headers</h3>
-						<div>
-							There is no header compression. Headers, cookies send to the server for every request which is inefficient especially for very high volume sites.
-						</div>
-					</section>
-
-					<section>
-						<h3>Head of line blocking</h3>
-						<div>
-							Once the connection is created, it is dedicated for specific request, until the response comes back, it cannot be used. ie: If you need to get 30 resources from host, you can get 6 at a time. Once you request 6 resources, the others must wait for these 6 requests to finish. So, HTTP/1.1 works in a serial way (serial request and response). This is called Head of line blocking.
-						</div>
-					</section>
-				</section>
-
-				<section data-background-color="#186A3B">
-					<section>
-						<h3>The new kid on the block.</h3>
-					</section>
-
-					<section>
-						<h3>HTTP/2.0</h3>
-
-						<div>
-							<a href="https://http2.github.io/http2-spec/" target="firat">Specs</a>
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<h3>Goals of HTTP/2.0</h3>
-							<ul>
-							 	<li>Minimize impact of Latency</li>
-							 	<li>Avoid head of line blocking</li>
-							 	<li>Use single connection per host</li>
-							 	<li>Backwards compatible</li>
-							 	<li>Fall back to HTTP/1.1</li>
-							 	<li>HTTP/1.1 methods, status, headers still work.</li>
-							</ul>
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<h3>Major Features</h3>
-							<ul>
-								<li>Binary framing</li>
-								<li>Multiple requests over Single TCP connection.</li>
-								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack</a>/Header Compression</li>
-								<li>No more 3way handshake or slow start.</li>
-							</ul>
-						</div>
-					</section>
-				</section>
-
-				<section data-background-color="#2E4053">
-					<section>
-						<h3>HTTP Security</h3>
-					</section>
-
-					<section>
-						<h3>Redirect Validation</h3>
-						<div>
-							Unvalidated redirects and forwards can send users to attacker's site. <br />
-							HTTP redirects with 3xx (except 304 , not modified).Redirects to relative URIs can be allowed, as well as redirects to the same site.
-						</div>
-					</section>
-
-					<section>
-						<h3>CSP (Content Security Policy)</h3>
-						<div>
-							Code from https://mybank.com should only have access to https://mybank.com’s data, and https://evil.example.com should certainly never be allowed access. <br /> 
-							Content-Security-Policy (CSP) provides a safety net for injection attacks by specifying a whitelist from where various content in a webpage can be loaded from.
-						</div>
-					</section>
-
-					<section>
-						<h3>Upgrade insecure requests</h3>
-						<div>
-							Upgrades all requests triggered by a page from HTTP to HTTPS. If there is a none secure resource on a page, it will be upgraded to a secure version.
-						</div>
-					</section>
-
-					<section>
-						<h3>HSTS : Strict Transport Security</h3>
-						<div>
-							HSTS tell browser 2 things: <br />
-							1. Load all content from your domain over HTTPS. <br />
-							2. Refuses to connect in case of certificate errors and warnings
-						</div>
-					</section>
-
-					<section>
-						<h3>X-Frame Options</h3>
-						<div>
-							Tells the browser if `iframe, frame, embed or object` can be used in a page or not. If so how to use it. Avoid clickjackig attacks.
-						</div>
-					</section>
-
-					<section>
-						<h3>X-Download-Options</h3>
-						<div>
-							Disables to option to open a file directly on download.
-						</div>
-					</section>
-
-					<section>
-						<h3>X-XSS-Protection</h3>
-						<div>
-							If browser detects an XSS attack, it will modify the page to block the attack.
-						</div>
-					</section>
-
-					<section>
-						<h3>X-Content-Type-Options</h3>
-						<div>
-							Browser does not allow modification of Content/Mime type.
-						</div>
-					</section>
-				</section>
-
-				<section data-background-color="#21618C">
-					<section>
-						<h3>Common Problems with Web Applications</h3>
-					</section>
-
-					<section>
-						<div>
-							<strong>#1: Big systems fail more often than small systems.</strong> Big systems have more external and internal dependencies along with many moving parts. Therefore, big systems should have many defensive mechanisms in place.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<strong>#2: Blocked threads are the number one cause of most failures.</strong>Slow applications and hung threads are the most popular reasons of failures. These reasons lead to cascading failures and chain reactions. Blocked/hung threads can happen due to several reasons like deadlocks, starvation and live locks. Hung thread detection policies, timeouts, circuit breakers and bulkheads can prevent these failures.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<strong>#3: Integration points are number one killer in any system.</strong>. Every integration point eventually fails, however a failure in the integration point shouldn’t take down the whole application. Cascading failures occur when problems in one integration point propagates. Failures in integrated services becomes your problem. It even become more serious if you are not prepared for it.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<strong>#4: Tight coupled systems fail more often than loose coupled systems.</strong> Decoupling middleware is a good practice to enable loose coupling for integration. This principle is applicable and best practice for cloud native applications.
-						</div>
-					</section>
-					
-					<section>
-						<div>
-							<strong>#5: High traffic site's Resource/Connections pools get drained very quickly.</strong> Resource/Connection pool have limitations. They can run out of resources rapidly and application performance will start degrading.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<strong>#6: Unbalanced capacities causes failures and scalability problems for applications.</strong>If the capacities are not aligned, then you have a problem. Capacity and sizing should be planned accordingly.
-						</div>
-					</section>
-					
-					<section>
-						<div>
-							<strong>#7: Never trust a system you have no control over.</strong> The downstream application which is running a blocking code, can take your application down.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<strong>#8: Slow applications gets more traffic.</strong>
-							When an application is slow, users hit re-load button or F5 many times to reach to the application which causes more traffic.
-						</div>
-					</section>
-					
-					<section>
-						<div>
-							<strong>#9: Fail fast all the time and retry gradually.</strong>
-							Exponential back off, Circuit breakers and timeouts should be embraced. User friendly error codes or default messages should be presented to the user until the stability is established.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>. <br />
-							Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</div>
-					</section>
-				</section>
+				
 
 				<section data-background-color="#E74C3C">
 					<section>
@@ -1181,6 +1099,101 @@ Content-type: text/html
 							When the parser reaches a Script tag, it stops, fetches the JavaScript and runs it. <br />
 							It is usually a good practice to fetch JavaScript Asynchronously.
 						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Application Servers and OS</h3>
+					</section>
+
+					<section>
+						<div>
+							There are multiple models such as Threading model, Event loop and hybrids. <br />
+							Traditional model is with thread and tasks. With NodeJS event loop was developed that ran single threaded with non blocking IO. Mostly used for IO bound operations. 
+						</div>
+					</section>
+
+					<section>
+						<img src="images/eventloop_threadpool.png" />
+					</section>
+
+					<section>
+						<dir>
+							Memory management and Garbage collection is used to alloc and free memory. Each process has a private memory space. Garbage collector asks OS for memory and manages it. aka Managed heap. Deals with collection garbage. Mark, sweep and compact. There may be multiple heaps. 
+						</dir>
+					</section>
+
+					<section>
+						<img src="images/gc.png" />
+					</section>
+				</section>
+
+				<section data-background-color="#21618C">
+					<section>
+						<h3>Common Problems with Web Applications</h3>
+					</section>
+
+					<section>
+						<div>
+							<strong>#1: Big systems fail more often than small systems.</strong> Big systems have more external and internal dependencies along with many moving parts. Therefore, big systems should have many defensive mechanisms in place.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>#2: Blocked threads are the number one cause of most failures.</strong>Slow applications and hung threads are the most popular reasons of failures. These reasons lead to cascading failures and chain reactions. Blocked/hung threads can happen due to several reasons like deadlocks, starvation and live locks. Hung thread detection policies, timeouts, circuit breakers and bulkheads can prevent these failures.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>#3: Integration points are number one killer in any system.</strong>. Every integration point eventually fails, however a failure in the integration point shouldn’t take down the whole application. Cascading failures occur when problems in one integration point propagates. Failures in integrated services becomes your problem. It even become more serious if you are not prepared for it.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>#4: Tight coupled systems fail more often than loose coupled systems.</strong> Decoupling middleware is a good practice to enable loose coupling for integration. This principle is applicable and best practice for cloud native applications.
+						</div>
+					</section>
+					
+					<section>
+						<div>
+							<strong>#5: High traffic site's Resource/Connections pools get drained very quickly.</strong> Resource/Connection pool have limitations. They can run out of resources rapidly and application performance will start degrading.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>#6: Unbalanced capacities causes failures and scalability problems for applications.</strong>If the capacities are not aligned, then you have a problem. Capacity and sizing should be planned accordingly.
+						</div>
+					</section>
+					
+					<section>
+						<div>
+							<strong>#7: Never trust a system you have no control over.</strong> The downstream application which is running a blocking code, can take your application down.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>#8: Slow applications gets more traffic.</strong>
+							When an application is slow, users hit re-load button or F5 many times to reach to the application which causes more traffic.
+						</div>
+					</section>
+					
+					<section>
+						<div>
+							<strong>#9: Fail fast all the time and retry gradually.</strong>
+							Exponential back off, Circuit breakers and timeouts should be embraced. User friendly error codes or default messages should be presented to the user until the stability is established.
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<strong>#10: Appreciate your hardware resources and utilize them wisely.</strong>. <br />
+							Don't fall for CPU and Memory is CHEAP. This is not TRUE. Long running CPU cycles can cause contention which slows down your application and eventually it will fail. Paged or unfragmented memory causes slow seek times.</div>
 					</section>
 				</section>
 
