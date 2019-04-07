@@ -42,7 +42,7 @@
 					<h3>Web Fundamentals</h3>
 				</section>
 
-				<section data-background-color="#3498DB">
+				<section>
 					<section>
 						<h3>Overview</h3>
 					</section>
@@ -80,7 +80,7 @@
 							HTTP/0.9 was <a href="https://www.ietf.org/rfc/rfc1945.txt">released</a> in 1991 by Tim Barnes Lee. <br />
 							It was a text based request, response protocol. <br />
 							Only HTML was supported.<br />
-							After each request; connection was terminated. <br />
+							After each request, connection was terminated. <br />
 						</div>
 					</section>
 
@@ -92,7 +92,7 @@
 					<section>
 						<h3>HTTP/1.0 : Rapid growth</h3>
 						<div>
-							Later on, HTTP/0.9 was <a href="https://tools.ietf.org/html/rfc1945">extended</a> to HTTP/1.0, request and response headers were added, also, you request images, text files, CSS and other. Every connection required a 3 way handshake which was very wasteful. 
+							Later on, HTTP/0.9 was <a href="https://tools.ietf.org/html/rfc1945">extended</a> to HTTP/1.0, request and response headers, images, text files, CSS were added. Every connection required a 3 way handshake which was very wasteful. 
 						</div>
 					</section>
 
@@ -105,7 +105,7 @@
 						<h3>HTTP/1.1 : Internet Standard</h3>
 						<div>
 							In 1999, HTTP/1.1 was <a href="https://www.w3.org/Protocols/rfc2616/rfc2616.html">released</a>.<br /> 
-							Persistent connections (keep alive) was introduced (which eliminated 3 way handshake for every request), chunked transfer encoding and host header were added. <br />
+							Persistent connections (keep alive) was introduced ( eliminated 3 way handshake for every request),and host header were added. <br />
 							With host headers, it was possible to host multiple sites for an IP. It was a breakthrough. <br />
 						</div>
 					</section>
@@ -153,9 +153,7 @@
 
 					<section>
 						<div>Uniform Resource Locators (URLs) are used in the request message for communication.</div>
-					</section>
-					
-					<section>
+
 						<img src="images/http1-url-structure.png" />
 					</section>
 
@@ -304,26 +302,9 @@
 					</section>
 
 					<section>
-						<h3>Request format</h3>
-						<div>
-							<pre>
-								<code class="hljs">
-Request       = Request-Line
-*(( general-header 
- | request-header          
- | entity-header ) CRLF)
-CRLF
-[ message-body ]
-								</code>
-							</pre>	
-						</div>
-
-					</section>
-
-					<section>
 						<h3>Request Format</h3>
 						<pre><code class="hljs">
-GET /articles/http-basics HTTP/1.1
+GET /articles/http-overview HTTP/1.1
 Host: www.firat.com
 Connection: keep-alive
 Cache-Control: no-cache
@@ -342,25 +323,11 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 					</section>
 
 					<section>
-						<h3>Response format</h3>
-						<div>
-							<code>
-								Response      = Status-Line<br />   
-		                       *(( general-header        <br />   
-		                        | response-header        <br />   
-		                        | entity-header ) CRLF)  <br />   
-		                       CRLF <br />   
-		                       [ message-body ]          <br />   
-							</code>
-						</div>
-					</section>
-
-					<section>
 						<div>
 							<pre>
 								<code class="hljs">
 HTTP/1.1 200 OK
-Date: Mon, 06 Dec 1999 20:54:26 GMT
+Date: Mon, 01 Apr 2019 20:54:26 GMT
 Server: Apache/1.3.6 (Unix)
 Last-Modified: Mon, 01 Apr 2019 14:06:11 GMT
 ETag: "2f5cd-964-381e1bd6"
@@ -384,29 +351,21 @@ Content-type: text/html
 
 					<section>
 						<div>
-							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document, file, or assortment of bytes.
+							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document.
 						</div>
 					</section>
 
 					<section>
 						<div>
+							structure : `type/subtype` <br />
 							<ul>
-								<li>JSON</li>
-								<li>XML</li>
-								<li>HTML</li>
-								<li>Images</li>
-								<li>Video</li>
+								<li>JSON : aplication/json</li>
+								<li>HTML : text/html</li>
+								<li>Images : image/png</li> 
 								<li>and many more.</li>
 							</ul>
 						</div>
-					</section>
-
-					<section>
-						<div>
-							Structure of a mime type: `type/subtype` <br />
-							Example: application/json, text/html, text/csv, text/plain, image/png, image/jpg
-						</div>
-					</section>
+					</section> 
 
 					<section>
 						<h3>Content Negotiation</h3>
@@ -414,7 +373,7 @@ Content-type: text/html
 
 					<section>
 						<div>
-							Content negotiation refers to mechanisms defined as a part of HTTP that make it possible to serve different versions of a document (or more generally, representations of a resource) at the same URI, so that user agents can specify which version fits their capabilities the best.
+							Content negotiation makes it possible to serve different representation of a document from the same URI, so that user agents can specify which version fits their capabilities the best.
 						</div>
 					</section>
 
@@ -543,7 +502,7 @@ Content-type: text/html
 
 					<section>
 						<div>
-							The <strong>TCP handshake</strong> itself is time-consuming, but a TCP connection adapts to its load, becoming more efficient with more sustained (or warm) connections. Short-lived connections do not make use of this efficiency feature of TCP, and performance degrades from optimum by persisting to transmit over a new, cold connection.
+							The <strong>TCP handshake</strong> itself is time-consuming.
 						</div>
 					</section>
 
@@ -602,12 +561,6 @@ Content-type: text/html
 					<section>
 						<div>
 							It usually takes a few round trips to get the optimal congestion window size which are very precious to determine the performance. Usually operating systems start with 4 packets which makes 5840 bytes for initial congestion window size which sender needs to wait for acknowledgements.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							Today, web pages have size of 2MB of data including images, css, js and other files. In a perfect network conditions, it takes around 9 round trips to transmit the data to the client.
 						</div>
 					</section>
 
@@ -690,7 +643,7 @@ Content-type: text/html
 					</section>
 
 					<section>
-						<div>How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server. It is limited by the speed of light (299.792.458 m/s)
+						<div>How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server. It is limited by the speed of light.
 						</div>
 					</section>
 
