@@ -219,9 +219,6 @@
 
 					<section>
 						<h3>Request/Response format</h3>
-						<div>
-							<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html">Request</a> and <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6">response</a> messages has formats. 
-						</div>
 					</section>
 
 					<section>
@@ -260,32 +257,14 @@ Content-length: 327
 Connection: close
 Content-type: text/html
 .... Content here ....</code></pre>
-						
-					</section>
-
-					<section>
-						<img src="images/requestresponse.jpg" />
-					</section>
+					</section> 
 
 					<section>
 						<h3>Content/Mime Types</h3>
-
 						<div>
-							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document.
+							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document. They are structured in `type/subtype` format such as: application/json, text/html etc.
 						</div>
-					</section>
-
-					<section>
-						<div>
-							structure : `type/subtype` <br />
-							<ul>
-								<li>JSON : aplication/json</li>
-								<li>HTML : text/html</li>
-								<li>Images : image/png</li> 
-								<li>and many more.</li>
-							</ul>
-						</div>
-					</section>
+					</section> 
 
 					<section>
 						<h3>Content Negotiation</h3>
@@ -309,10 +288,12 @@ Content-type: text/html
 					</section>
 
 					<section>
+						<h3>Request Headers</h3>
 						<img src="images/httpheaders.png">
 					</section>
 
 					<section>
+						<h3>Response Headers</h3>
 						<img src="images/httpresponseheaders.png" />
 					</section>
 
@@ -327,6 +308,7 @@ Content-type: text/html
 					</section>
 
 					<section>
+						<h3>Compression Headers</h3>
 						<div>
 							Request-Header : Accept-Encoding: gzip, deflate <br/>
 							Response-Header: Content-Encoding: gzip, deflate <br />
@@ -336,42 +318,33 @@ Content-type: text/html
 
 					<section>
 						<h3>HTTP Caching</h3>
-					</section>
-
-					<section>
-						<strong>Time based caching</strong>
 						<div>
-							<code>
-								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
-								Expires: Sat 22 Jan 2029 12:00:00 GMT<br />
-								Cache-Control: max-age=315360000<br />
-							</code>
+							Time based caching <br />
+							Content based caching <br />
+							Request/Response Caching.
 						</div>
 					</section>
 
-					<section>
-						<strong>Content based caching</strong>
+					<section> 
 						<div>
-							<code>
-								Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT<br />
-								Etag: "8e5bcd-59f-segedbht"<br /> 
-							</code>
-						</div>
-					</section>
+							<pre><code>
+Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT
+Expires: Sat 22 Jan 2029 12:00:00 GMT
+Cache-Control: max-age=315360000
+							</code></pre>
 
-					<section>
-						<strong>HTTP Request and Response Caching</strong>
-						<div>
-							Request:<br />
-							<code>
-								if-modified-since: Wed, 01 Jan 2017 17:33:12 GMT <br />
-							</code>
+							<pre><code>
+Last-Modified: Mon, 01 Jan 2018 17:55:15 GMT
+Etag: "8e5bcd-59f-segedbht"
+							</code></pre>
 
-							Response: <br />
-							<code>
-								HTTP/1.1 304 Not Modified <br />
-								Expires: Sat, 11 April 2018 17:33.12
-							</code>
+							<pre><code>
+#Request
+if-modified-since: Wed, 01 Jan 2017 17:33:12 GMT
+#Response
+HTTP/1.1 304 Not Modified 
+Expires: Sat, 11 April 2018 17:33.12
+							</code></pre>
 						</div>
 					</section>
 
@@ -416,25 +389,13 @@ Content-type: text/html
 
 					<section>
 						<div>
-							The <strong>persistent-connection (keep-alive)</strong> model keeps connections open between successive requests, reducing the time needed to open new connections and thus saving resources. HTTP pipelining goes one step further and sends multiple requests without waiting for a response.
+							The <strong>persistent-connection (keep-alive)</strong> model keeps connections open between successive requests, reducing the time needed to open new connections and thus saving resources. HTTP pipelining goes one step further and sends multiple requests without waiting for a response. Idle connections are closed after a while because they consume resources on the server. 
 						</div>
 					</section>
 
 					<section>
 						<img src="images/connections.png" />
 					</section>
-
-					<section>
-						<div>
-							A <strong>persistent connection</strong> remains open for a period, and can be reused for several requests, saving the the need for a new TCP handshake, and utilizing TCP's performance. This connection will not stay open forever: idle connections are closed after some time.
-						</div>
-					</section>
-
-					<section>
-						<div>
-							One drawback of persistent connections is that, they consume resources on servers. They must be closed after a period of time.
-						</div>
-					</section> 
 
 					<section>
 						<img src="images/singleconnection.PNG" />
@@ -635,7 +596,7 @@ Content-type: text/html
 					</section>
 
 					<section>
-						<h3>Lack of prioritization:</h3>
+						<h3>Lack of prioritization</h3>
 						<div>
 							Priority is decided by browser. Not be developer or the application. There is no way to specify the order or responses. Browsers need to decide how to best use the connections and the order of resources.
 						</div>
@@ -939,12 +900,18 @@ Content-type: text/html
 					</section>
 
 					<section>
+						<div>
+							DOM (Document object model) is the object representation of the page.<br />
+							CSSOM (CSS Object Model) is the object representation of the styles associated with DOM.<br />
+						</div>
+					</section>
+
+					<section>
 						<img src="images/crp.png" />
 					</section>
 
 					<section>
-						<pre>
-							<code class="hljs markdown">&lt;html&gt;
+						<pre><code class="hljs markdown">&lt;html&gt;
 &lt;head&gt;
   <title>Understanding the Critical Rendering Path</title>
   &lt;style&gt;
@@ -971,8 +938,7 @@ Content-type: text/html
       <small>Copyright 2019</small>
   </footer>
 &lt;/body&gt;
-&lt;/html&gt;</code>
-						</pre>
+&lt;/html&gt;</code></pre>
 					</section>
 
 					<section>
@@ -985,23 +951,9 @@ Content-type: text/html
 
 					<section>
 						<div>
-							HTML is forgiving and a page does not have to be loaded for content to start appearing unless something blocks rendering. 
-						</div>
-					</section>
-
-					<section>
-						<div>
-							DOM (Document object model) is the object representation of the page. <br />
-							CSSOM (CSS Object Model) is the object representation of the styles associated with DOM. <br />
 							CSS is render blocking resource, both blocks the page rendering and javascript execution. <br />
-						</div>
-					</section>
-
-					<section>
-						<div>
 							JavaScript is parser blocking resource, which means parsing of HTML is blocked by JavaScript. <br />
 							When the parser reaches a Script tag, it stops, fetches the JavaScript and runs it. <br />
-							It is usually a good practice to fetch JavaScript Asynchronously.
 						</div>
 					</section>
 				</section>
