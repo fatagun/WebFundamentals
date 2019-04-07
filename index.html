@@ -39,8 +39,7 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h3>Web Fundamentals for</h3>
-					<h3>IT executives</h3>
+					<h3>Web Fundamentals</h3>
 				</section>
 
 				<section data-background-color="#3498DB">
@@ -533,10 +532,6 @@ Content-type: text/html
 					</section>
 
 					<section>
-						 <img src="images/internetmodel.PNG" />
-					</section> 
-
-					<section>
 						<img src="images/httpconnections.png" />
 					</section>
 
@@ -563,6 +558,10 @@ Content-type: text/html
 					</section>
 
 					<section>
+						<img src="images/connections.png" />
+					</section>
+
+					<section>
 						<div>
 							A <strong>persistent connection</strong> is a one which remains open for a period, and can be reused for several requests, saving the the need for a new TCP handshake, and utilizing TCP's performance. This connection will not stay open forever: idle connections are closed after some time.
 						</div>
@@ -572,10 +571,10 @@ Content-type: text/html
 						<div>
 							One drawback of persistent connections is that, they consume resources on servers. They must be closed after a period of time.
 						</div>
-					</section>
+					</section> 
 
 					<section>
-						<img src="images/connections.png" />
+						<img src="images/singleconnection.PNG" />
 					</section>
 
 					<section>
@@ -691,7 +690,7 @@ Content-type: text/html
 					</section>
 
 					<section>
-						<div>How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server.
+						<div>How long it takes for an IP packet to get from one location to another. Round trip time (RTT) is twice the latency. Latency is the major bottleneck for HTTP which uses many round trips to the server. It is limited by the speed of light (299.792.458 m/s)
 						</div>
 					</section>
 
@@ -707,9 +706,13 @@ Content-type: text/html
 					</section>
 
 					<section>
+						<img src="images/bandwidthlatency.PNG">
+					</section>
+
+					<section>
 						<h3>Connection Time</h3>
 						<div>
-							Establishing a connection requires a Round trip between the client and the server called the “Three Way Handshake.” This handshake time is generally related to the latency between the client and the server.
+							Establishing a connection requires a Round trip between the client and the server called the "Three Way Handshake." This handshake time is generally related to the latency between the client and the server.
 						</div>
 					</section>
 
@@ -751,7 +754,7 @@ Content-type: text/html
 					<section>
 						<h3>DNS lookup</h3>
 						<div>
-							Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, though luckily only once per hostname and this information can be cached.
+							Before a client can fetch a web page it needs to translate the hostname to an IP address using the Domain Name System (DNS). This needs to happen for every unique hostname on the fetched HTML page as well, this information can be cached.
 						</div>
 					</section>
 				</section>
@@ -771,6 +774,7 @@ Content-type: text/html
 								<li>DNS prefetch/resource hints</li>
 								<li>Preconnect/Prerender</li>
 								<li>Image Striping</li>
+								<li>And much more.</li>
 							</ul>
 						</div>
 					</section>
@@ -787,7 +791,7 @@ Content-type: text/html
 						<div>
 							Nothing is faster than serving resources from the client's machine. No network resources will be used.
 							<br />
-							Client side caching TTL can be set through the HTTP header <strong>“cache control”</strong> and the key <strong>“max-age” (in seconds)</strong>, or the <strong>“expires”</strong> header.
+							Client side caching TTL can be set through the HTTP header <strong>"cache control"</strong> and the key <strong>"max-age" (in seconds)</strong>, or the <strong>“expires”</strong> header.
 							<br />
 							Static content like images, JS, CSS and other files can be versioned. Once the version changes, client makes a request to get the newer version from the server.
 							<br />
