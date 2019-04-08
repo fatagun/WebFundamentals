@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Web fundamentals</title>
+		<title>Fundamentals of Web</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -68,7 +68,7 @@
 
 					<section>
 						<div>
-							Hyper text transfer protocol (HTTP) is the most adoped application protocol used today. It is the common language between clients and servers, enabling the modern web.
+							Hyper text transfer protocol (HTTP) is the most adopted application protocol used today. It is the common language between clients and servers, enabling the modern web.
 						</div>
 					</section>
 
@@ -124,7 +124,8 @@
 						<h3>HTTP/1.1 : Internet Standard</h3>
 						<div>
 							In 1999, HTTP/1.1 was <a href="https://www.w3.org/Protocols/rfc2616/rfc2616.html">released</a>.<br /> 
-							Persistent connections (keep alive) was introduced ( eliminated 3 way handshake for every request),and host header were added. <br />
+							Persistent connections, and host headers were added. 
+							<br />
 							With host headers, it was possible to host multiple sites for an IP. It was a breakthrough. <br />
 						</div>
 					</section>
@@ -262,13 +263,13 @@ Content-type: text/html
 					<section>
 						<h3>Content/Mime Types</h3>
 						<div>
-							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document. They are structured in `type/subtype` format such as: application/json, text/html etc.
+							Various content types are supported by HTTP. A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document. <br />
+							They are structured in `type/subtype` format such as: application/json, text/html etc.
 						</div>
 					</section> 
 
 					<section>
 						<h3>Content Negotiation</h3>
-
 						<div>
 							Content negotiation makes it possible to serve different representation of a document from the same URI, so that user agents can specify which version fits their capabilities the best.
 						</div>
@@ -276,14 +277,11 @@ Content-type: text/html
 
 					<section>
 						<h3>Headers</h3>
-					</section>
-
-					<section>
 						<div>
-							General Headers: date, connection etc. Used by both clients and server.<br/>
-							Request Headers: Used by client to indicate client configuration.<br/>
-							Response Headers: used by servers to describe server configuration and URL's information.<br/>
-							Entity Headers: Used by servers to describe entities, resources. <br/>
+							<strong>General Headers :</strong> date, connection etc. Used by both clients and server.<br/>
+							<strong>Request Headers :</strong> Used by client to indicate client configuration.<br/>
+							<strong>Response Headers :</strong> used by servers to describe server configuration and URL's information.<br/>
+							<strong>Entity Headers :</strong> Used by servers to describe entities, resources. <br/>
 						</div>
 					</section>
 
@@ -301,8 +299,7 @@ Content-type: text/html
 						<h3>HTTP Compression</h3>
 
 						<div>
-							Compression helps reduce bandwidth usage and transfer size/speed. 
-							<br/>
+							Compression helps reduce bandwidth usage and transfer size/speed.<br/>
 							HTTP compression is enabled on server side and client should support it.<br/>
 						</div>
 					</section>
@@ -311,8 +308,8 @@ Content-type: text/html
 						<h3>Compression Headers</h3>
 						<div>
 							Request-Header : Accept-Encoding: gzip, deflate <br/>
-							Response-Header: Content-Encoding: gzip, deflate <br />
-							Other compression types: ie brotli, protobuf is available.
+							Response-Header : Content-Encoding: gzip, deflate <br />
+							Other compression types : ie brotli, protobuf is available.
 						</div>
 					</section>
 
@@ -351,11 +348,10 @@ Expires: Sat, 11 April 2018 17:33.12
 					<section>
 						<strong>Cache Modes</strong>
 						<div>
-							Private: within a browser URLs, browsing history and web content. They are generally small and specific to a user. <br />
+							Private: within a browser URLs, browsing history and web content. Generally small and specific to a user.<br />
 							Public: Can be cached in down streams such as proxies, CDN etc. 
 						</div>
 					</section>
-
 				</section>
 
 				<section data-background="#34495E">
@@ -636,7 +632,7 @@ Expires: Sat, 11 April 2018 17:33.12
 							<ul>
 							 	<li>Minimize impact of Latency</li>
 							 	<li>Avoid head of line blocking</li>
-							 	<li>Use single connection per host</li>
+							 	<li>Single connection per host</li>
 							 	<li>Backwards compatible</li>
 							 	<li>Fall back to HTTP/1.1</li>
 							</ul>
@@ -647,10 +643,10 @@ Expires: Sat, 11 April 2018 17:33.12
 						<div>
 							<h3>Major Features</h3>
 							<ul>
-								<li>Binary framing</li>
+								<li>Binary framing and streams</li>
 								<li>Multiple requests over Single connection.</li>
 								<li><a href="https://http2.github.io/http2-spec/compression.html">HPack</a>/Header Compression</li>
-								<li>No more 3way handshake or slow start.</li>
+								<li>No more 3way handshake</li>
 							</ul>
 						</div>
 					</section>
@@ -888,6 +884,13 @@ Expires: Sat, 11 April 2018 17:33.12
 					<section>
 						<h3>Critical Rendering Path</h3>
 						<div>
+							DOM (Document object model) is the object representation of the page.<br />
+							CSSOM (CSS Object Model) is the object representation of the styles associated with DOM.<br />
+						</div>
+					</section>
+
+					<section>
+						<div>
 							<ol>
 								<li>Constructing the DOM Tree</li>
 								<li>Constructing the CSSOM Tree</li>
@@ -896,13 +899,6 @@ Expires: Sat, 11 April 2018 17:33.12
 								<li>Generating the Layout</li>
 								<li>Painting</li>
 							</ol>
-						</div>
-					</section>
-
-					<section>
-						<div>
-							DOM (Document object model) is the object representation of the page.<br />
-							CSSOM (CSS Object Model) is the object representation of the styles associated with DOM.<br />
 						</div>
 					</section>
 
